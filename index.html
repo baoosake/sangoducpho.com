@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sàn Gỗ Bảo Ân – Phân Phối Sàn Gỗ, Sàn Nhựa Chính Hãng Tại Đức Phổ</title>
+<meta name="description" content="Sàn Gỗ Bảo Ân - Phân phối thi công sàn nhựa dán keo, Glotex, Neofloor, King và sàn gỗ Glomax, Inovar, Pergo tại Đức Phổ, Quảng Ngãi. Giá rẻ, thi công trọn gói.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --wood-dark: #3D2B1A; --wood-mid: #6B4422; --wood-warm: #A0622A;
+    --gold: #C8922A; --cream: #F9F5EE; --cream-dark: #EDE7DC;
+    --text-dark: #1E140B; --text-mid: #5A4230; --text-light: #8B6E55;
+    --white: #FFFFFF; --nav-h: 76px; --zalo: #0068FF; --call: #25D366;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.6; padding-bottom: 60px; }
+  body.modal-open { overflow: hidden; }
+
+  /* Navigation */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); background: rgba(249,245,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(107,68,34,0.12); display: flex; align-items: center; justify-content: space-between; padding: 0 5vw; }
+  .logo-group { display: flex; flex-direction: column; text-decoration: none; }
+  .logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--wood-dark); letter-spacing: -0.02em; }
+  .logo span { color: var(--gold); font-style: italic; }
+  .logo-sub { font-size: 0.65rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .nav-links { display: flex; gap: 1.8rem; list-style: none; }
+  .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-mid); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--wood-mid); }
+  .nav-cta { background: var(--wood-dark); color: var(--white); padding: 0.55rem 1.25rem; border-radius: 2px; font-size: 0.85rem; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+  .nav-cta:hover { background: var(--wood-mid); }
+
+  /* Hero Section */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1.1fr 0.9fr; padding-top: var(--nav-h); overflow: hidden; }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem 4rem 5vw; }
+  .hero-tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+  .hero-tag::before { content: ''; display: block; width: 24px; height: 2px; background: var(--gold); }
+  .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.4rem, 4.5vw, 3.8rem); line-height: 1.15; color: var(--wood-dark); margin-bottom: 1.2rem; }
+  .hero-title em { font-style: italic; color: var(--wood-warm); }
+  .hero-desc { font-size: 1rem; color: var(--text-mid); max-width: 480px; line-height: 1.7; margin-bottom: 2rem; }
+  .hero-desc strong { color: var(--wood-dark); }
+  .hero-actions { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+  .btn-primary { background: var(--wood-dark); color: var(--white); padding: 0.85rem 1.8rem; font-size: 0.9rem; font-weight: 600; text-decoration: none; border-radius: 2px; transition: all 0.2s; }
+  .btn-primary:hover { background: var(--wood-mid); transform: translateY(-1px); }
+  .btn-ghost { color: var(--wood-mid); font-size: 0.9rem; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 0.4rem; }
+  .btn-ghost:hover svg { transform: translateX(3px); }
+  .btn-ghost svg { transition: transform 0.2s; }
+  
+  .hero-stats { margin-top: 3.5rem; display: flex; gap: 2rem; border-top: 1px solid rgba(107,68,34,0.15); padding-top: 1.75rem; }
+  .stat-num { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 600; color: var(--wood-dark); line-height: 1; }
+  .stat-label { font-size: 0.78rem; color: var(--text-light); margin-top: 0.3rem; }
+  
+  .hero-right { position: relative; overflow: hidden; background: var(--wood-dark); }
+  .hero-img { width: 100%; height: 100%; object-fit: cover; opacity: 0.82; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(135deg, rgba(61,43,26,0.4) 0%, transparent 60%); z-index: 2; }
+  .hero-badge { position: absolute; bottom: 2rem; right: 2rem; z-index: 3; background: var(--gold); color: var(--wood-dark); padding: 1.2rem; border-radius: 50%; width: 120px; height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.25); border: 2px solid var(--white); }
+  .hero-badge .big { font-size: 1.1rem; font-weight: 700; line-height: 1.1; }
+  .hero-badge .small { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em; margin-top: 4px; text-transform: uppercase; }
+
+  /* Sections General */
+  section { padding: 5.5rem 5vw; }
+  .section-tag { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); color: var(--wood-dark); line-height: 1.25; margin-bottom: 0.8rem; }
+  .section-desc { font-size: 0.98rem; color: var(--text-mid); max-width: 580px; line-height: 1.7; }
+
+  /* Partner Banner */
+  .partner-bar { background: var(--cream-dark); border-y: 1px solid rgba(107,68,34,0.12); padding: 1.5rem 5vw; text-align: center; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.5rem 3rem; }
+  .partner-title { font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-mid); }
+  .partner-brands { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; justify-content: center; }
+  .brand-pill { font-weight: 700; font-size: 0.88rem; color: var(--wood-dark); background: rgba(255,255,255,0.7); padding: 0.35rem 0.9rem; border-radius: 3px; border: 1px solid rgba(107,68,34,0.15); }
+
+  /* Products Category Step 1 */
+  #san-pham { background: var(--white); }
+  .products-header { margin-bottom: 2.5rem; }
+  
+  .category-split { display: grid; grid-template-columns: 1fr 1fr; gap: 2vw; margin-bottom: 1.5rem; }
+  .cat-card { position: relative; border-radius: 6px; overflow: hidden; cursor: pointer; aspect-ratio: 16/9; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border: 1px solid rgba(107,68,34,0.1); transition: transform 0.3s, box-shadow 0.3s; }
+  .cat-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(61,43,26,0.15); }
+  .cat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+  .cat-card:hover img { transform: scale(1.05); }
+  .cat-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,6,3,0.85) 0%, rgba(10,6,3,0.1) 100%); display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 2.5rem; }
+  .cat-title { color: white; font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; letter-spacing: 0.05em; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+  .cat-subtitle { color: var(--gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.5rem; }
+
+  /* Products Step 2 */
+  .product-nav-bar { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+  .back-cat-btn { background: transparent; color: var(--wood-dark); border: 1px solid var(--wood-dark); padding: 0.45rem 1rem; border-radius: 4px; cursor: pointer; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+  .back-cat-btn:hover { background: var(--wood-dark); color: white; }
+  .filter-tabs { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .tab { padding: 0.45rem 1.1rem; border: 1px solid rgba(107,68,34,0.2); background: transparent; color: var(--text-mid); font-size: 0.82rem; font-weight: 600; border-radius: 4px; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+  .tab.active, .tab:hover { background: var(--wood-dark); color: var(--white); border-color: var(--wood-dark); }
+  
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+  .product-card { background: var(--cream); border: 1px solid rgba(107,68,34,0.1); overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; border-radius: 4px; display: flex; flex-direction: column; cursor: pointer; }
+  .product-card:hover { transform: translateY(-4px); box-shadow: 0 16px 35px rgba(61,43,26,0.12); }
+  
+  .product-visual { aspect-ratio: 4/3; height: auto; overflow: hidden; position: relative; background: var(--cream-dark); padding: 10px; display: flex; align-items: center; justify-content: center;}
+  .product-visual img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.4s; }
+  .product-card:hover .product-visual img { transform: scale(1.06); }
+  
+  .product-badge { position: absolute; top: 12px; left: 12px; z-index: 2; background: var(--gold); color: var(--wood-dark); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 8px; border-radius: 2px; }
+  .product-zoom-hint { position: absolute; bottom: 10px; right: 10px; z-index: 2; background: rgba(30,20,11,0.65); color: #fff; font-size: 0.68rem; font-weight: 600; padding: 4px 9px; border-radius: 20px; display: flex; align-items: center; gap: 5px; opacity: 0; transition: opacity 0.2s; backdrop-filter: blur(3px); }
+  .product-card:hover .product-zoom-hint { opacity: 1; }
+  .product-info { padding: 1.25rem; display: flex; flex-direction: column; flex-grow: 1; }
+  .product-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; color: var(--wood-dark); margin-bottom: 0.25rem; transition: color 0.2s; }
+  .product-card:hover .product-name { color: var(--gold); }
+  .product-origin { font-size: 0.8rem; font-weight: 600; color: var(--wood-warm); margin-bottom: 0.75rem; }
+  .product-specs { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+  .spec { font-size: 0.7rem; font-weight: 500; color: var(--text-mid); background: var(--cream-dark); padding: 3px 7px; border-radius: 2px; }
+  .product-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; }
+  .product-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(107,68,34,0.08); padding-top: 0.8rem; }
+  .price { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--wood-dark); font-weight: 700; }
+  .price sub { font-size: 0.68rem; font-weight: 400; color: var(--text-light); }
+  .add-btn { background: transparent; color: var(--wood-dark); border: 1px solid var(--wood-dark); cursor: pointer; padding: 0.4rem 0.9rem; font-size: 0.8rem; font-weight: 600; border-radius: 2px; transition: all 0.2s; }
+  .product-card:hover .add-btn { background: var(--wood-dark); color: var(--white); }
+
+  /* Modal Popup Styles */
+  .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.75); z-index: 1000; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; padding: 20px; backdrop-filter: blur(5px); }
+  .modal.active { display: flex; opacity: 1; }
+  .modal-content { background: var(--white); width: 100%; max-width: 1050px; max-height: 92vh; border-radius: 4px; overflow: hidden; display: flex; flex-direction: column; position: relative; transform: translateY(20px); transition: transform 0.3s ease; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+  .modal.active .modal-content { transform: translateY(0); }
+  .modal-close { position: absolute; top: 15px; right: 15px; width: 36px; height: 36px; background: rgba(0,0,0,0.05); border: none; border-radius: 50%; font-size: 1.5rem; color: var(--wood-dark); cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: all 0.2s; line-height: 1; }
+  .modal-close:hover { background: var(--gold); color: white; transform: rotate(90deg); }
+  .modal-body { display: grid; grid-template-columns: 1.15fr 0.85fr; overflow-y: auto; }
+  .modal-gallery { padding: 25px; background: var(--cream); border-right: 1px solid rgba(107,68,34,0.1); }
+  .main-img-wrap { width: 100%; aspect-ratio: 4/3; max-height: 460px; border-radius: 4px; overflow: hidden; margin-bottom: 15px; background: var(--cream-dark); display: flex; align-items: center; justify-content: center; position: relative; cursor: zoom-in; padding: 15px; }
+  .main-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
+  .main-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; background: rgba(30,20,11,0.55); color: #fff; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; transition: background 0.2s; }
+  .main-nav-btn:hover { background: var(--wood-dark); }
+  .main-nav-btn.prev { left: 10px; }
+  .main-nav-btn.next { right: 10px; }
+  .main-img-counter { position: absolute; bottom: 10px; right: 10px; z-index: 4; background: rgba(30,20,11,0.65); color: #fff; font-size: 0.72rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+  .main-zoom-hint { position: absolute; bottom: 10px; left: 10px; z-index: 4; background: rgba(30,20,11,0.55); color: #fff; font-size: 0.68rem; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: flex; align-items: center; gap: 5px; }
+  .thumb-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(64px, 1fr)); gap: 8px; max-height: 150px; overflow-y: auto; padding: 4px 4px 4px 0; scrollbar-width: thin; }
+  .thumb-list::-webkit-scrollbar { width: 6px; }
+  .thumb-list::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
+  .thumb-list img { width: 100%; aspect-ratio: 1/1; object-fit: contain; border-radius: 4px; cursor: pointer; border: 2px solid transparent; opacity: 0.6; transition: all 0.2s; background: var(--cream-dark); padding: 4px;}
+  .thumb-list img:hover, .thumb-list img.active { opacity: 1; border-color: var(--wood-dark); }
+  .modal-info { padding: 30px; display: flex; flex-direction: column; overflow-y: auto; }
+  .modal-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--wood-dark); margin-bottom: 5px; line-height: 1.2; }
+  .modal-origin { color: var(--wood-warm); font-weight: 600; font-size: 0.9rem; margin-bottom: 20px; }
+  .spec-table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  .spec-table tr { border-bottom: 1px dashed rgba(107,68,34,0.15); }
+  .spec-table td { padding: 8px 0; font-size: 0.88rem; color: var(--text-dark); }
+  .spec-table td:first-child { font-weight: 600; color: var(--text-mid); width: 40%; }
+  .modal-desc { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; margin-bottom: auto; padding-bottom: 20px; margin-top: 10px;}
+  .modal-actions { display: flex; gap: 15px; margin-top: 15px; }
+  .btn-modal-order { flex: 1; background: var(--wood-dark); color: var(--white); border: none; padding: 0.9rem; font-size: 0.95rem; font-weight: 600; border-radius: 2px; cursor: pointer; transition: background 0.2s; text-align: center; }
+  .btn-modal-order:hover { background: var(--wood-mid); }
+  .btn-modal-zalo { flex: 1; background: var(--zalo); color: var(--white); border: none; padding: 0.9rem; font-size: 0.95rem; font-weight: 600; border-radius: 2px; cursor: pointer; text-decoration: none; text-align: center; display: flex; justify-content: center; align-items: center; gap: 8px; transition: all 0.2s;}
+  .btn-modal-zalo:hover { background: #0056D6; }
+  .btn-modal-zalo svg { width: 20px; height: 20px; fill: currentColor; }
+
+  /* Lightbox */
+  .lightbox { display: none; position: fixed; inset: 0; background: rgba(10,6,3,0.94); z-index: 1200; align-items: center; justify-content: center; padding: 20px; }
+  .lightbox.active { display: flex; }
+  .lightbox-img-wrap { position: relative; max-width: 94vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
+  .lightbox-img-wrap img { max-width: 94vw; max-height: 90vh; object-fit: contain; border-radius: 2px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  .lightbox-close { position: absolute; top: 18px; right: 22px; width: 42px; height: 42px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; color: #fff; font-size: 1.6rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; transition: all 0.2s; }
+  .lightbox-close:hover { background: var(--gold); border-color: var(--gold); transform: rotate(90deg); }
+  .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; transition: all 0.2s; }
+  .lightbox-nav:hover { background: var(--gold); border-color: var(--gold); }
+  .lightbox-nav.prev { left: 16px; }
+  .lightbox-nav.next { right: 16px; }
+  .lightbox-counter { position: absolute; bottom: -38px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.85); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; }
+  
+  /* Price Section - SIMPLIFIED ACCORDION */
+  #bang-gia { background: var(--cream-dark); }
+  .price-note { font-size: 0.82rem; color: var(--text-light); background: rgba(200,146,42,0.1); border: 1px dashed rgba(200,146,42,0.4); padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.5rem 0 2rem; max-width: 720px; }
+  .price-note strong { color: var(--wood-dark); }
+
+  .price-accordion { background: var(--white); border: 1px solid rgba(107,68,34,0.1); border-radius: 6px; overflow: hidden; }
+
+  /* Cấp 1: Danh mục lớn (Sàn nhựa / Sàn gỗ) */
+  .price-cat { border-bottom: 1px solid rgba(107,68,34,0.1); }
+  .price-cat:last-child { border-bottom: none; }
+  .price-cat-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.4rem; cursor: pointer; background: var(--wood-dark); color: var(--white); transition: background 0.2s; }
+  .price-cat-head:hover { background: var(--wood-mid); }
+  .price-cat-name { display: flex; align-items: center; gap: 0.7rem; font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; }
+  .price-cat-icon { width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(200,146,42,0.2); border-radius: 4px; color: var(--gold); }
+  .price-cat-count { font-size: 0.76rem; font-weight: 500; color: rgba(255,255,255,0.65); text-transform: none; letter-spacing: 0; }
+  .price-cat-arrow { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.25s ease; }
+  .price-cat.open .price-cat-arrow { transform: rotate(180deg); }
+  .price-cat-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: var(--cream); }
+  .price-cat.open .price-cat-body { max-height: 4000px; }
+
+  /* Cấp 2: Hãng, hiện bên trong danh mục Sàn gỗ */
+  .price-group-title { background: var(--wood-mid); color: var(--white); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.6rem 1.4rem; }
+
+  /* Cấp 3: Sản phẩm */
+  .price-item { border-bottom: 1px solid rgba(107,68,34,0.08); }
+  .price-item:last-child { border-bottom: none; }
+  .price-item-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; cursor: pointer; background: var(--white); transition: background 0.2s; }
+  .price-item-head:hover { background: rgba(200,146,42,0.07); }
+  .price-item.open .price-item-head { background: rgba(200,146,42,0.1); }
+  .price-item-name { font-weight: 700; color: var(--wood-dark); font-size: 0.95rem; font-family: 'Playfair Display', serif; }
+  .price-item-name span { display: block; font-weight: 500; color: var(--text-light); font-size: 0.76rem; margin-top: 2px; font-family: 'Inter', sans-serif; }
+  .price-item-right { display: flex; align-items: center; gap: 0.9rem; flex-shrink: 0; }
+  .price-item-price { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--wood-warm); font-size: 1rem; white-space: nowrap; }
+  .price-item-price sub { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--text-light); font-size: 0.68rem; }
+  .price-item-arrow { width: 22px; height: 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--wood-mid); transition: transform 0.25s ease; }
+  .price-item.open .price-item-arrow { transform: rotate(180deg); }
+  .price-item-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: var(--cream); }
+  .price-item.open .price-item-body { max-height: 300px; }
+  .price-item-body-inner { padding: 0.2rem 1.25rem 1.1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.6rem; }
+  .price-item-spec { font-size: 0.82rem; color: var(--text-mid); }
+  .price-item-spec strong { color: var(--wood-dark); font-weight: 600; }
+  .price-item-pnote { font-size: 0.78rem; color: var(--text-light); flex-basis: 100%; }
+  .price-item-detail-btn { margin-left: auto; font-size: 0.78rem; font-weight: 600; color: var(--wood-dark); border: 1px solid var(--wood-dark); padding: 0.35rem 0.9rem; border-radius: 20px; background: transparent; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
+  .price-item-detail-btn:hover { background: var(--wood-dark); color: var(--white); }
+
+  /* Why Choose Us & Others */
+  #tai-sao { background: var(--wood-dark); color: var(--white); }
+  #tai-sao .section-tag { color: var(--gold); }
+  #tai-sao .section-title { color: var(--white); }
+  #tai-sao .section-desc { color: rgba(255,255,255,0.7); }
+  .why-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: start; margin-top: 3rem; }
+  .why-list { display: flex; flex-direction: column; gap: 1.75rem; }
+  .why-item { display: flex; gap: 1.2rem; }
+  .why-icon { width: 46px; height: 46px; flex-shrink: 0; background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.3); display: flex; align-items: center; justify-content: center; border-radius: 2px; }
+  .why-icon svg { stroke: var(--gold); }
+  .why-text-title { font-size: 1rem; font-weight: 600; color: var(--white); margin-bottom: 0.3rem; }
+  .why-text-desc { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.65; }
+  .why-visual { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; border-radius: 4px; }
+  .process-steps { display: flex; flex-direction: column; }
+  .process-step { display: flex; gap: 1rem; align-items: flex-start; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .process-step:last-child { border-bottom: none; }
+  .step-num { width: 30px; height: 30px; flex-shrink: 0; border: 1px solid var(--gold); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 0.9rem; color: var(--gold); border-radius: 50%; }
+  .step-label { font-size: 0.95rem; color: var(--white); font-weight: 600; }
+  .step-sub { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.15rem; }
+
+  /* Reviews */
+  #danh-gia { background: var(--cream-dark); }
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
+  .review-card { background: var(--white); border: 1px solid rgba(107,68,34,0.08); padding: 1.5rem; border-radius: 3px; }
+  .stars { color: var(--gold); font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 0.8rem; }
+  .review-text { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+  .reviewer { display: flex; align-items: center; gap: 0.75rem; }
+  .reviewer-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--cream-dark); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; color: var(--wood-mid); }
+  .reviewer-name { font-size: 0.88rem; font-weight: 700; color: var(--wood-dark); }
+  .reviewer-loc { font-size: 0.75rem; color: var(--text-light); }
+
+  /* Contact Section */
+  #lien-he { background: var(--white); }
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; margin-top: 2.5rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; gap: 1rem; }
+  .contact-icon { width: 42px; height: 42px; flex-shrink: 0; background: var(--cream); border: 1px solid rgba(107,68,34,0.12); display: flex; align-items: center; justify-content: center; border-radius: 3px; }
+  .contact-icon svg { stroke: var(--wood-mid); }
+  .contact-label { font-size: 0.75rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+  .contact-val { font-size: 0.95rem; color: var(--wood-dark); font-weight: 600; margin-top: 0.15rem; }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; background: var(--cream); padding: 2rem; border-radius: 4px; border: 1px solid rgba(107,68,34,0.1); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+  .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-mid); }
+  .form-group input, .form-group select, .form-group textarea { padding: 0.7rem 0.9rem; border: 1px solid rgba(107,68,34,0.2); background: var(--white); font-size: 0.88rem; font-family: 'Inter', sans-serif; color: var(--text-dark); border-radius: 2px; outline: none; transition: border-color 0.2s; }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--wood-mid); }
+  .form-group textarea { min-height: 90px; resize: vertical; }
+  .form-submit { background: var(--wood-dark); color: var(--white); border: none; cursor: pointer; padding: 0.85rem 1.8rem; font-size: 0.9rem; font-weight: 600; font-family: 'Inter', sans-serif; border-radius: 2px; transition: background 0.2s; align-self: flex-start; margin-top: 0.5rem; }
+  .form-submit:hover { background: var(--wood-warm); }
+
+  /* HOẠT ẢNH CHO FLOATING ACTION BUTTONS */
+  .floating-actions { position: fixed; bottom: 25px; right: 25px; z-index: 99; display: flex; flex-direction: column; gap: 15px; }
+  .float-btn {
+      display: flex; align-items: center; gap: 10px; padding: 12px 20px;
+      border-radius: 50px; color: #fff; text-decoration: none;
+      font-size: 0.95rem; font-weight: 600;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      overflow: hidden;
+      position: relative;
+  }
+  .float-btn svg { width: 22px; height: 22px; fill: currentColor; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+  
+  .float-btn::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255,255,255,0.2); transform: translateX(-120%) skewX(-15deg); transition: all 0.5s ease-in-out;
+  }
+  
+  .float-btn:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+  .float-btn:hover::before { transform: translateX(120%) skewX(-15deg); }
+  .float-btn:hover svg { transform: scale(1.15) rotate(-10deg); }
+
+  .float-btn.zalo { background: var(--zalo); }
+  .float-btn.call { background: var(--call); }
+
+  /* Footer */
+  footer { background: #1A0F07; color: rgba(255,255,255,0.6); padding: 3.5rem 5vw 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 2rem; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--white); margin-bottom: 0.5rem; }
+  .footer-logo span { color: var(--gold); font-style: italic; }
+  .footer-about { font-size: 0.82rem; line-height: 1.7; max-width: 280px; }
+  .footer-col h4 { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--white); margin-bottom: 1rem; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-col ul a { font-size: 0.82rem; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; cursor: pointer; }
+  .footer-col ul a:hover { color: var(--gold); }
+  .footer-bottom { background: #120A04; color: rgba(255,255,255,0.4); text-align: center; font-size: 0.78rem; padding: 1.25rem 5vw; border-top: 1px solid rgba(255,255,255,0.06); }
+  
+  .toast { position: fixed; bottom: 2rem; left: 2rem; z-index: 1001; background: var(--wood-dark); color: var(--white); padding: 0.9rem 1.5rem; border-radius: 4px; font-size: 0.88rem; box-shadow: 0 8px 24px rgba(0,0,0,0.3); transform: translateY(100px); opacity: 0; transition: all 0.3s; pointer-events: none; border-left: 4px solid var(--gold); }
+  .toast.show { transform: translateY(0); opacity: 1; }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { height: 65vw; order: -1; }
+    .hero-left { padding: 2.5rem 5vw; }
+    .why-layout, .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+    footer { grid-template-columns: 1fr 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .modal-body { grid-template-columns: 1fr; }
+    .main-img-wrap { max-height: 300px; }
+    .modal-info { padding: 20px; }
+    .lightbox-nav { width: 40px; height: 40px; }
+    .category-split { grid-template-columns: 1fr; }
+    .cat-title { font-size: 1.8rem; }
+    .price-item-head { flex-wrap: wrap; }
+    .price-item-detail-btn { margin-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#" class="logo-group">
+    <div class="logo">Sàn Gỗ <span>Bảo Ân</span></div>
+    <div class="logo-sub">Đại lý phân phối sàn gỗ, sàn nhựa</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#san-pham">Sản phẩm phân phối</a></li>
+    <li><a href="#bang-gia">Bảng giá tham khảo</a></li>
+    <li><a href="#tai-sao">Cam kết chất lượng</a></li>
+    <li><a href="#danh-gia">Khách hàng Đức Phổ</a></li>
+    <li><a href="#lien-he">Liên hệ báo giá</a></li>
+  </ul>
+  <a href="#lien-he" class="nav-cta">Tư vấn tận nhà</a>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="trang-chu">
+  <div class="hero-left">
+    <div class="hero-tag">Đại lý sàn gỗ, sàn nhựa uy tín · Đức Phổ</div>
+    <h1 class="hero-title">Vẻ đẹp <em>tự nhiên</em><br>Đẳng cấp cho ngôi nhà Việt</h1>
+    <p class="hero-desc"><strong>Sàn Gỗ Bảo Ân</strong> chuyên tư vấn & thi công sàn gỗ công nghiệp, sàn nhựa dán keo, sàn nhựa hèm khóa chống nước 100%. Phục vụ tận tâm tại Đức Phổ, Mộ Đức, Sa Huỳnh.</p>
+    <div class="hero-actions">
+      <a href="#san-pham" class="btn-primary">Xem mẫu sàn</a>
+      <a href="#lien-he" class="btn-ghost">Nhận báo giá trọn gói <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-num">100%</div><div class="stat-label">Chính hãng CO/CQ</div></div>
+      <div><div class="stat-num">20 Năm</div><div class="stat-label">Bảo hành nhà sản xuất</div></div>
+      <div><div class="stat-num">0 ĐIỂM</div><div class="stat-label">Rủi ro ngập nước / Mối mọt</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img class="hero-img" src="images/nen.jpg" alt="Sàn gỗ Bảo Ân Đức Phổ" loading="eager">
+    <div class="hero-overlay"></div>
+    <div class="hero-badge">
+      <div class="big">BẢO ÂN</div>
+      <div class="small">ĐỨC PHỔ<br>QUẢNG NGÃI</div>
+    </div>
+  </div>
+</section>
+
+<!-- Partner Banner -->
+<div class="partner-bar">
+  <div class="partner-title">Thương hiệu phân phối chính hãng:</div>
+  <div class="partner-brands">
+    <span class="brand-pill">GLO TEX (Sàn nhựa)</span>
+    <span class="brand-pill">NEOFLOOR</span>
+    <span class="brand-pill">KING</span>
+    <span class="brand-pill">GLOMAX</span>
+    <span class="brand-pill">INOVAR</span>
+    <span class="brand-pill">PERGO (Bỉ)</span>
+  </div>
+</div>
+
+<!-- Products Section -->
+<section id="san-pham">
+  <div class="products-header">
+    <div class="section-tag">Bộ sưu tập vật liệu lát sàn</div>
+    <h2 class="section-title">Sản phẩm phân phối chính hãng</h2>
+  </div>
+
+  <!-- Bước 1: Khối hình ảnh chia đôi (Sàn nhựa / Sàn Gỗ) -->
+  <div id="step-1-category" class="category-split">
+    <div class="cat-card" onclick="selectCategory('nhua')">
+      <img src="images/mausannhua.jpg" onerror="this.src='https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=800&q=80'" alt="Sàn Nhựa">
+      <div class="cat-overlay">
+        <h3 class="cat-title">SÀN NHỰA</h3>
+        <div class="cat-subtitle">Chống Nước Tuyệt Đối</div>
+      </div>
+    </div>
+    <div class="cat-card" onclick="selectCategory('go')">
+      <img src="images/mausango.jpg" onerror="this.src='https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?w=800&q=80'" alt="Sàn Gỗ">
+      <div class="cat-overlay">
+        <h3 class="cat-title">SÀN GỖ</h3>
+        <div class="cat-subtitle">Sang Trọng Đẳng Cấp</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bước 2: Hiển thị Hãng và Sản phẩm (Ẩn mặc định) -->
+  <div id="step-2-products" style="display: none;">
+    <div class="product-nav-bar">
+      <button class="back-cat-btn" onclick="backToCategory()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Quay lại chọn loại sàn
+      </button>
+      <div class="filter-tabs" id="dynamic-tabs">
+        <!-- JS sẽ chèn các Tab (Các hãng) vào đây -->
+      </div>
+    </div>
+    
+    <div class="products-grid" id="productsGrid">
+      <!-- Sản phẩm sẽ hiển thị tại đây -->
+    </div>
+  </div>
+</section>
+
+<!-- Price Section - Simplified Accordion -->
+<section id="bang-gia">
+  <div class="section-tag">Chi phí đầu tư</div>
+  <h2 class="section-title">Bảng giá tham khảo trọn gói</h2>
+  <p class="section-desc">Bấm chọn loại sàn quan tâm (Sàn nhựa / Sàn gỗ) để xem các hãng và sản phẩm. Giá đã bao gồm vật liệu + keo/xốp lót + phào nẹp + công thợ thi công, tính theo m² sử dụng thực tế.</p>
+  <div class="price-note">⚠️ <strong>Lưu ý:</strong> Đây là giá tham khảo, có thể thay đổi theo thời điểm, độ dày/màu sắc khách chọn và điều kiện mặt bằng thực tế. Anh Bảo Ân sẽ khảo sát và báo giá chính xác tận nhà, hoàn toàn miễn phí.</div>
+  <div class="price-accordion" id="priceAccordion"></div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section id="tai-sao">
+  <div class="section-tag">Giá trị cốt lõi</div>
+  <h2 class="section-title">Tại sao chọn Sàn Gỗ Bảo Ân?</h2>
+  <p class="section-desc">Chúng tôi mang đến giải pháp lát sàn trọn gói từ các nhà phân phối uy tín hàng đầu đến từng công trình tại Đức Phổ.</p>
+  <div class="why-layout">
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><div class="why-text-title">Cam kết 100% chính hãng</div><div class="why-text-desc">Đầy đủ chứng chỉ CO/CQ về xuất xứ và chất lượng. Nói không với hàng nhái, hàng trôi nổi.</div></div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><div class="why-text-title">Bảo hành ngập nước & Mối mọt</div><div class="why-text-desc">Chế độ bảo hành chính hãng chuẩn nhà sản xuất, kèm cam kết bảo trì thi công 12 tháng tận nhà.</div></div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg></div>
+        <div><div class="why-text-title">Mang Catalogue & Mẫu tận nhà</div><div class="why-text-desc">Anh Bảo Ân trực tiếp mang catalogue và thanh mẫu gỗ thực tế đến tận công trình tại Đức Phổ để tư vấn.</div></div>
+      </div>
+      <div class="why-item">
+        <div class="why-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <div><div class="why-text-title">Báo giá trọn gói minh bạch</div><div class="why-text-desc">Giá tính theo m² hoàn thiện (Gồm ván sàn + keo/xốp + phào nẹp + công thợ), không phát sinh chi phí ẩn.</div></div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--white);font-size:1.15rem;margin-bottom:1.5rem;">Quy trình phục vụ chuẩn</h3>
+      <div class="process-steps">
+        <div class="process-step"><div class="step-num">1</div><div><div class="step-label">Tiếp nhận nhu cầu</div><div class="step-sub">Khách gọi Hotline/Zalo hoặc để lại thông tin</div></div></div>
+        <div class="process-step"><div class="step-num">2</div><div><div class="step-label">Khảo sát & Mang mẫu tận nơi</div><div class="step-sub">Đo đạc mặt bằng thực tế tại Đức Phổ, tư vấn loại sàn phù hợp</div></div></div>
+        <div class="process-step"><div class="step-num">3</div><div><div class="step-label">Báo giá trọn gói</div><div class="step-sub">Lập dự toán chi tiết không phát sinh</div></div></div>
+        <div class="process-step"><div class="step-num">4</div><div><div class="step-label">Thi công hoàn thiện</div><div class="step-sub">Đội thợ chuẩn kỹ thuật, thi công nhanh gọn, sạch sẽ</div></div></div>
+        <div class="process-step"><div class="step-num">5</div><div><div class="step-label">Nghiệm thu & Phiếu bảo hành</div><div class="step-sub">Bàn giao công trình và trao phiếu bảo hành chính hãng</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews Section -->
+<section id="danh-gia">
+  <div class="section-tag">Khách hàng địa phương</div>
+  <h2 class="section-title">Đánh giá từ chủ nhà tại Đức Phổ</h2>
+  <div class="reviews-grid" id="reviewsGrid"></div>
+</section>
+
+<!-- Contact Form Section -->
+<section id="lien-he">
+  <div class="section-tag">Tư vấn trực tiếp</div>
+  <h2 class="section-title">Nhận báo giá & Xem mẫu tận nơi</h2>
+  <p class="section-desc">Để lại số điện thoại, anh Bảo Ân sẽ liên hệ tư vấn và mang mẫu thực tế đến tận nhà cho quý khách tại Đức Phổ.</p>
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div class="contact-item">
+        <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div><div class="contact-label">Địa chỉ Đại lý</div><div class="contact-val">Thị xã Đức Phổ, Tỉnh Quảng Ngãi</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.82a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.74a16 16 0 006.35 6.35l1.27-.76a2 2 0 012.11-.45 12.84 12.84 0 002.81.7 2 2 0 011.72 2z"/></svg></div>
+        <div><div class="contact-label">Hotline / Zalo (Anh Bảo Ân)</div><div class="contact-val">0363 333 426</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg></div>
+        <div><div class="contact-label">Giờ mở cửa</div><div class="contact-val">Thứ 2 – Chủ Nhật: 7:00 – 18:30</div></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div><div class="contact-label">Khu vực phục vụ thi công</div><div class="contact-val">Đức Phổ · Mộ Đức · Sa Huỳnh · Phổ Ninh<br>Hoài Nhơn (Bình Định) · Quảng Ngãi </div></div>
+      </div>
+    </div>
+    
+    <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Họ và tên chủ nhà</label><input type="text" id="formName" placeholder="VD: Anh Minh" required></div>
+        <div class="form-group"><label>Số điện thoại / Zalo</label><input type="tel" id="formPhone" placeholder="09xx xxx xxx" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Diện tích ước tính (m²)</label><input type="number" id="formArea" placeholder="VD: 45"></div>
+        <div class="form-group">
+          <label>Loại vật liệu quan tâm</label>
+          <select id="formSelect">
+            <option>Sàn nhựa dán keo</option>
+            <option>Sàn nhựa GLO TEX</option>
+            <option>Sàn nhựa NEOFLOOR</option>
+            <option>Sàn nhựa King</option>
+            <option>Sàn gỗ GLOMAX</option>
+            <option>Sàn gỗ INOVAR</option>
+            <option>Sàn gỗ Pergo</option>
+            <option>Cần anh Bảo Ân mang mẫu tư vấn trực tiếp</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Ghi chú công trình</label><textarea id="formNote" placeholder="Ví dụ: Nhà mới xây tại Phổ Ninh, cần thi công gấp phòng khách..."></textarea></div>
+      <button type="submit" class="form-submit">Gửi yêu cầu – Sàn Gỗ Bảo Ân gọi lại ngay →</button>
+    </form>
+  </div>
+</section>
+
+<!-- Product Detail Modal (Popup) -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-body">
+      <!-- Cột trái: Hình ảnh -->
+      <div class="modal-gallery">
+        <div class="main-img-wrap" id="mainImgWrap" onclick="openLightbox()">
+          <button class="main-nav-btn prev" onclick="event.stopPropagation(); stepMainImg(-1)">‹</button>
+          <img id="modalMainImg" src="" alt="Sản phẩm chính">
+          <button class="main-nav-btn next" onclick="event.stopPropagation(); stepMainImg(1)">›</button>
+          <div class="main-img-counter" id="mainImgCounter">1/1</div>
+          <div class="main-zoom-hint">🔍 Nhấn để xem phóng to</div>
+        </div>
+        <div class="thumb-list" id="modalThumbList">
+          <!-- Render thumbnails via JS -->
+        </div>
+      </div>
+      <!-- Cột phải: Thông số -->
+      <div class="modal-info">
+        <h3 id="modalTitle" class="modal-title">Tên Sản Phẩm</h3>
+        <div id="modalOrigin" class="modal-origin">Nguồn gốc sản phẩm</div>
+        <div class="price-in-modal">
+          <div>
+            <div class="pm-label">Giá tham khảo (trọn gói)</div>
+            <div class="pm-note" id="modalPriceNote"></div>
+          </div>
+          <div class="pm-value" id="modalPriceValue"></div>
+        </div>
+        <table class="spec-table" id="modalSpecs">
+          <!-- Render specs via JS -->
+        </table>
+        <div id="modalDesc" class="modal-desc">Mô tả chi tiết sản phẩm...</div>
+        <div class="modal-actions">
+          <button class="btn-modal-order" onclick="triggerOrder()">Nhận báo giá mẫu này</button>
+          <a href="https://zalo.me/0363333426" target="_blank" class="btn-modal-zalo">
+            <svg viewBox="0 0 24 24"><path d="M20.2 12.42A8.44 8.44 0 0 0 12 4a8.44 8.44 0 0 0-8.2 8.42c0 4.3 3.03 7.85 7.15 8.35v2.85l3.85-2.25c.38.07.78.1 1.2.1 4.5 0 8.2-3.8 8.2-8.42v-.63h-.03z"/></svg>
+            Chat Zalo Ngay
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fullscreen Lightbox for close-up detail viewing -->
+<div id="lightbox" class="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-nav prev" onclick="stepLightbox(-1)">‹</button>
+  <div class="lightbox-img-wrap">
+    <img id="lightboxImg" src="" alt="Xem chi tiết">
+    <div class="lightbox-counter" id="lightboxCounter">1/1</div>
+  </div>
+  <button class="lightbox-nav next" onclick="stepLightbox(1)">›</button>
+</div>
+
+<!-- NÚT GỌI VÀ CHAT ZALO NỔI Ở GÓC MÀN HÌNH -->
+<div class="floating-actions">
+  <a href="https://zalo.me/0363333426" target="_blank" class="float-btn zalo">
+    <svg viewBox="0 0 24 24"><path d="M20.2 12.42A8.44 8.44 0 0 0 12 4a8.44 8.44 0 0 0-8.2 8.42c0 4.3 3.03 7.85 7.15 8.35v2.85l3.85-2.25c.38.07.78.1 1.2.1 4.5 0 8.2-3.8 8.2-8.42v-.63h-.03z"/></svg>
+    Chat Zalo
+  </a>
+  <a href="tel:0363333426" class="float-btn call">
+    <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    Gọi Báo Giá
+  </a>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div>
+    <div class="footer-logo">Sàn Gỗ <span>Bảo Ân</span></div>
+    <p class="footer-about">Đại lý phân phối & thi công trọn gói ván sàn công nghiệp, sàn nhựa dán keo, sàn hèm khóa chính hãng uy tín tại Đức Phổ, Quảng Ngãi.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Sản phẩm chính</h4>
+    <ul>
+      <li><a onclick="goToCategoryAndTab('nhua', 0)">Sàn nhựa</a></li>
+      <li><a onclick="goToCategoryAndTab('go', 1)">Sàn gỗ GLOMAX</a></li>
+      <li><a onclick="goToCategoryAndTab('go', 2)">Sàn gỗ INOVAR</a></li>
+      <li><a onclick="goToCategoryAndTab('go', 3)">Sàn gỗ PERGO</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Dịch vụ</h4>
+    <ul>
+      <li><a href="#lien-he">Mang mẫu tận nhà</a></li>
+      <li><a href="#lien-he">Đo đạc miễn phí</a></li>
+      <li><a href="#lien-he">Thi công trọn gói</a></li>
+      <li><a href="#lien-he">Bảo hành chính hãng</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Khu vực phục vụ</h4>
+    <ul>
+      <li><a href="#">Thị xã Đức Phổ</a></li>
+      <li><a href="#">Huyện Mộ Đức</a></li>
+      <li><a href="#">Khu vực Sa Huỳnh</a></li>
+      <li><a href="#">TX. Hoài Nhơn (Bình Định)</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">© 2026 Sàn Gỗ Bảo Ân tại Đức Phổ, Quảng Ngãi. Tất cả quyền được bảo lưu.</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ==========================================
+// CƠ SỞ DỮ LIỆU SẢN PHẨM & HÌNH ẢNH MẪU
+// ==========================================
+const products = [
+  // --- NHÓM SÀN NHỰA ---
+  {
+    id: 'san-nhua-keo', name: 'Sàn Nhựa Dán Keo', origin: 'Sản xuất trong nước', cat: 'san-nhua', badge: 'Giá Tốt Nhất',
+    price: '115.000', priceNote: 'Bản 2mm: 115.000đ · Bản 3mm: 135.000đ', unit: 'm²',
+    specs: ['2mm/3mm', 'Class 32', 'Dán keo nhanh'],
+    img: 'images/sannhuadankeo.jpg',
+    desc: 'Giải pháp lát sàn tiết kiệm chi phí, bám dính chắc chắn. Rất phù hợp cho cửa hàng, quán cafe hoặc cải tạo nhanh.',
+    gallery: [
+      'images/sannhuadankeo.jpg','images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images/5.jpg',
+      'images/6.jpg','images/7.jpg','images/8.jpg','images/9.jpg','images/10.jpg','images/11.jpg',
+      'images/12.jpg','images/13.jpg','images/14.jpg','images/15.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Sản xuất trong nước, phân phối chính hãng' },
+      { label: 'Quy cách', value: '914.4 x 152.4 x 2mm (hoặc 3mm)' },
+      { label: 'Chất liệu', value: 'Nhựa PVC nguyên sinh' },
+      { label: 'Cốt lõi', value: 'Nhựa PVC dẻo, không cốt cứng' },
+      { label: 'Cấp mài mòn', value: 'Class 32 (Dân dụng)' },
+      { label: 'Bề mặt', value: 'Vân gỗ nổi, chống trơn trượt, phủ UV 0.15–0.2mm' },
+      { label: 'Thi công', value: 'Dán keo trực tiếp lên nền, không cần hèm khóa' },
+      { label: 'Bảo hành', value: '5 năm bong tróc keo (đúng kỹ thuật thi công)' },
+      { label: 'Phù hợp', value: 'Cửa hàng, quán cà phê, cải tạo nhanh, ngân sách tiết kiệm' }
+    ]
+  },
+  {
+    id: 'san-nhua-glotex', name: 'Sàn Nhựa GLO TEX', origin: 'Phân phối chính hãng GLO TEX', cat: 'san-nhua',
+    price: '245.000', priceNote: 'Bản 4mm: 245.000đ · Bản 5mm: 275.000đ', unit: 'm²',
+    specs: ['4mm/5mm SPC', 'Class 33', 'Chống nước 100%'],
+    img: 'images/sannhuaglotex.jpg',
+    desc: 'Sàn nhựa SPC GLO TEX chính hãng. Lớp phủ bền bỉ, không lo cong vênh, hoàn hảo cho tầng trệt và khu vực bếp.',
+    gallery: [
+      'images/sannhuaglotex.jpg','images/16.jpg','images/17.jpg','images/18.jpg','images/19.jpg',
+      'images/20.jpg','images/21.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu, phân phối chính hãng GLO TEX' },
+      { label: 'Quy cách', value: '915 x 157 x 2mm (hoặc 4mm)' },
+      { label: 'Chất liệu', value: 'Nhựa SPC (Stone Plastic Composite)' },
+      { label: 'Cốt lõi', value: 'Cốt nhựa cứng SPC bột đá, chống nước 100%' },
+      { label: 'Cấp mài mòn', value: 'Class 33 (Thương mại nhẹ)' },
+      { label: 'Bề mặt', value: 'Sần EIR chân thực, wear layer 0.3mm' },
+      { label: 'Hèm khóa', value: 'Hèm khóa SPC thông minh, tự định vị, không cần keo' },
+      { label: 'Bảo hành', value: '10 năm chính hãng' },
+      { label: 'Phù hợp', value: 'Nhà ở, văn phòng, khu vực ẩm thấp (bếp, gần biển)' }
+    ]
+  },
+  {
+    id: 'san-nhua-neofloor', name: 'Sàn Nhựa NEOFLOOR', origin: 'Phân phối chính hãng NEOFLOOR', cat: 'san-nhua',
+    price: '255.000', priceNote: 'Bản 4mm tiêu chuẩn', unit: 'm²',
+    specs: ['4mm SPC', 'Class 33', 'Chống cháy lan'],
+    img: 'images/sannhuaneofloor.jpg',
+    desc: 'Thiết kế màu sắc theo xu hướng hiện đại, cốt nhựa cứng cáp chịu lực cực tốt, thân thiện môi trường.',
+    gallery: [
+      'images/sannhuaneofloor.jpg','images/22.jpg','images/23.jpg','images/24.jpg','images/25.jpg',
+      'images/26.jpg','images/27.jpg','images/28.jpg','images/29.jpg','images/30.jpg','images/31.jpg','images/32.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu, phân phối chính hãng NEOFLOOR' },
+      { label: 'Quy cách', value: '1220 x 183 x 6mm' },
+      { label: 'Chất liệu', value: 'Nhựa SPC thạch anh' },
+      { label: 'Cốt lõi', value: 'Cốt nhựa cứng SPC, chống cháy lan' },
+      { label: 'Cấp mài mòn', value: 'Class 33 (Thương mại nhẹ)' },
+      { label: 'Bề mặt', value: 'Sần lụa mờ, phủ Nano 0.3mm' },
+      { label: 'Hèm khóa', value: 'Click system, lắp ghép không cần keo' },
+      { label: 'Bảo hành', value: '10 năm chính hãng' },
+      { label: 'Phù hợp', value: 'Căn hộ, nhà phố, không gian cần vẻ hiện đại' }
+    ]
+  },
+  {
+    id: 'san-nhua-king', name: 'Sàn Nhựa King', origin: 'Phân phối chính hãng King SPC', cat: 'san-nhua',
+    price: '265.000', priceNote: 'Bản 4mm: 265.000đ · Bản 6mm: 310.000đ', unit: 'm²',
+    specs: ['4mm/6mm SPC', 'Class 33', 'Chống trơn R10'],
+    img: 'images/sannhuaking.jpg',
+    desc: 'Hèm khóa liên kết chặt chẽ, kháng nước tuyệt đối, đáp ứng rất tốt cho môi trường khí hậu ven biển.',
+    gallery: [
+      'images/sannhuaking.jpg','images/33.jpg','images/34.jpg','images/35.jpg','images/36.jpg',
+      'images/37.jpg','images/38.jpg','images/39.jpg','images/40.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu, phân phối chính hãng King SPC' },
+      { label: 'Quy cách', value: '935 x 190 x 6mm (hoặc 4mm)' },
+      { label: 'Chất liệu', value: 'Nhựa nguyên sinh King SPC' },
+      { label: 'Cốt lõi', value: 'Cốt SPC siêu kháng nước' },
+      { label: 'Cấp mài mòn', value: 'Class 33 (Thương mại nhẹ)' },
+      { label: 'Bề mặt', value: 'Sần chống trượt chuẩn R10, wear layer 0.3–0.5mm' },
+      { label: 'Hèm khóa', value: 'Hèm khóa thông minh, liên kết chặt, không hở mạch' },
+      { label: 'Bảo hành', value: '10 năm chính hãng' },
+      { label: 'Phù hợp', value: 'Khu vực ven biển, khí hậu nồm ẩm, nhà tắm nắng nóng' }
+    ]
+  },
+
+  // --- NHÓM SÀN GỖ GLOMAX ---
+  {
+    id: 'glomax-8mm', name: 'Sàn Gỗ GLOMAX 8mm', origin: 'Gỗ công nghiệp, cốt HDF', cat: 'go-glomax',
+    price: '195.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['8mm', 'AC4', 'Giá tiết kiệm'],
+    img: 'images/sangoglomax8mm.jpg',
+    desc: 'Dòng sản phẩm tiêu chuẩn 8mm mang đến không gian sang trọng với mức chi phí tối ưu nhất cho phòng ngủ, chung cư.',
+    gallery: [
+      'images/sangoglomax8mm.jpg','images/41.jpg','images/42.jpg','images/43.jpg','images/44.jpg','images/45.jpg',
+      'images/46.jpg','images/47.jpg','images/48.jpg','images/49.jpg','images/50.jpg','images/51.jpg','images/52.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Gỗ công nghiệp GLOMAX' },
+      { label: 'Quy cách', value: '1225 x 150 x 8mm' },
+      { label: 'Chất liệu', value: 'Gỗ công nghiệp phủ Melamine' },
+      { label: 'Cốt lõi', value: 'HDF tỉ trọng cao' },
+      { label: 'Cấp mài mòn', value: 'Class 32 / AC4' },
+      { label: 'Bề mặt', value: 'Sần mờ tự nhiên' },
+      { label: 'Hèm khóa', value: 'Khóa mộng kép, phủ sáp chống ẩm mép hèm' },
+      { label: 'Bảo hành', value: '15 năm chính hãng' },
+      { label: 'Phù hợp', value: 'Phòng ngủ, căn hộ chung cư, ngân sách tối ưu' }
+    ]
+  },
+  {
+    id: 'glomax-12mm', name: 'Sàn Gỗ GLOMAX 12mm', origin: 'Gỗ công nghiệp, cốt HDF', cat: 'go-glomax', badge: 'Chắc Chắn',
+    price: '245.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['12mm', 'AC4', 'Đi êm chân'],
+    img: 'images/sangoglomax12mm.jpg',
+    desc: 'Bản 12mm dày dặn giúp bước chân êm ái, đầm chắc hơn. Phù hợp cho không gian rộng như phòng khách, nhà phố.',
+    gallery: [
+      'images/sangoglomax12mm.jpg','images/53.jpg','images/54.jpg','images/55.jpg','images/56.jpg','images/57.jpg',
+      'images/58.jpg','images/59.jpg','images/60.jpg','images/61.jpg','images/62.jpg','images/63.jpg','images/64.jpg',
+      'images/65.jpg','images/66.jpg','images/67.jpg','images/68.jpg','images/69.jpg','images/70.jpg','images/71.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Gỗ công nghiệp GLOMAX' },
+      { label: 'Quy cách', value: '1223 x 150 x 12mm' },
+      { label: 'Chất liệu', value: 'Gỗ công nghiệp phủ Melamine' },
+      { label: 'Cốt lõi', value: 'HDF đầm chắc, chịu lực cao' },
+      { label: 'Cấp mài mòn', value: 'Class 32 / AC4' },
+      { label: 'Bề mặt', value: 'Sần theo vân gỗ' },
+      { label: 'Hèm khóa', value: 'Hèm khóa thông minh Unilin' },
+      { label: 'Bảo hành', value: '15 năm chính hãng' },
+      { label: 'Phù hợp', value: 'Phòng khách, nhà phố, không gian rộng cần đi êm chân' }
+    ]
+  },
+
+  // --- NHÓM SÀN GỖ INOVAR (MALAYSIA) ---
+  {
+    id: 'inovar-8mm', name: 'INOVAR 8mm Bản Tiêu Chuẩn', origin: 'Nhập khẩu Malaysia', cat: 'go-inovar',
+    price: '265.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['8mm', 'AC4', 'Chống mối mọt'],
+    img: 'images/sangoinovar8mm.jpg',
+    desc: 'Sàn gỗ Inovar 8mm nhập khẩu 100% Malaysia. Giải pháp chống ẩm, chống mối mọt với chi phí hợp lý.',
+    gallery: [
+      'images/sangoinovar8mm.jpg','images/72.jpg','images/73.jpg','images/74.jpg','images/75.jpg','images/76.jpg',
+      'images/77.jpg','images/78.jpg','images/79.jpg','images/80.jpg','images/81.jpg','images/82.jpg','images/83.jpg','images/84.jpg',
+      'images/85.jpg','images/86.jpg','images/87.jpg','images/88.jpg','images/89.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu 100% Malaysia' },
+      { label: 'Quy cách', value: '1288 x 192 x 8mm' },
+      { label: 'Chất liệu', value: 'Gỗ công nghiệp Malaysia' },
+      { label: 'Cốt lõi', value: 'Super HDF, siêu cứng, kháng nước' },
+      { label: 'Cấp mài mòn', value: 'AC4' },
+      { label: 'Bề mặt', value: 'Mặt sần chống trơn' },
+      { label: 'Hèm khóa', value: 'Novaloc, phủ sáp hèm chống thấm' },
+      { label: 'Bảo hành', value: '20 năm chính hãng' },
+      { label: 'Phù hợp', value: 'Nhà ở khí hậu nồm ẩm, cần chống mối mọt' }
+    ]
+  },
+  {
+    id: 'inovar-12mm', name: 'INOVAR 12mm Cao Cấp', origin: 'Nhập khẩu Malaysia', cat: 'go-inovar', badge: 'Bán Chạy',
+    price: '335.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['12mm', 'AC5', 'Siêu cứng'],
+    img: 'images/sangoinovar12mm.jpg',
+    desc: 'Dòng 12mm nổi tiếng với cốt gỗ siêu cứng, kháng nước vượt trội, thách thức thời tiết nồm ẩm tại miền Trung.',
+    gallery: [
+      'images/sangoinovar12mm.jpg','images/90.jpg','images/91.jpg','images/92.jpg','images/93.jpg','images/94.jpg',
+      'images/95.jpg','images/96.jpg','images/97.jpg','images/98.jpg','images/99.jpg','images/100.jpg','images/111.jpg',
+      'images/112.jpg','images/113.jpg','images/114.jpg','images/115.jpg','images/116.jpg','images/117.jpg','images/118.jpg',
+      'images/119.jpg','images/120.jpg','images/121.jpg','images/122.jpg','images/123.jpg','images/124.jpg','images/125.jpg',
+      'images/126.jpg','images/127.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu 100% Malaysia' },
+      { label: 'Quy cách', value: '1285 x 188 x 12mm' },
+      { label: 'Chất liệu', value: 'Gỗ công nghiệp Malaysia cao cấp' },
+      { label: 'Cốt lõi', value: 'Super HDF, chịu nước tuyệt đối' },
+      { label: 'C cấp mài mòn', value: 'AC5 (Cao nhất, chống xước cực tốt)' },
+      { label: 'Bề mặt', value: 'Sần EIR (Embossed in Register)' },
+      { label: 'Hèm khóa', value: 'Novaloc, công nghệ độc quyền' },
+      { label: 'Bảo hành', value: '25 năm chính hãng' },
+      { label: 'Phù hợp', value: 'Phòng khách, nhà phố miền Trung, nơi nồm ẩm cao' }
+    ]
+  },
+  {
+    id: 'inovar-xuongca', name: 'INOVAR 12mm Xương Cá', origin: 'Nhập khẩu Malaysia', cat: 'go-inovar', badge: 'Sang Trọng',
+    price: '495.000', priceNote: 'Đã gồm công thi công lát xương cá (Herringbone)', unit: 'm²',
+    specs: ['12mm', 'Herringbone', 'Đẳng cấp'],
+    img: 'images/sangoinovarxuongca12mm.jpg',
+    desc: 'Kiểu lát xương cá mang đậm phong cách Châu Âu, tạo điểm nhấn không gian vô cùng ấn tượng và sang trọng.',
+    gallery: [
+      'images/sangoinovarxuongca12mm.jpg','images/128.jpg','images/129.jpg','images/130.jpg','images/131.jpg',
+      'images/132.jpg','images/133.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu 100% Malaysia' },
+      { label: 'Quy cách', value: '129 x 808 x 12mm (chuyên dụng lát xương cá)' },
+      { label: 'Chất liệu', value: 'Gỗ công nghiệp Malaysia' },
+      { label: 'Cốt lõi', value: 'Super HDF' },
+      { label: 'Cấp mài mòn', value: 'AC4 / AC5' },
+      { label: 'Bề mặt', value: 'Sần lụa' },
+      { label: 'Hèm khóa', value: 'Hèm A/B chuyên biệt cho lát Herringbone' },
+      { label: 'Bảo hành', value: '20 năm chính hãng' },
+      { label: 'Phù hợp', value: 'Phòng khách, showroom, không gian cần điểm nhấn sang trọng' }
+    ]
+  },
+
+  // --- NHÓM SÀN GỖ PERGO (BỈ) ---
+  {
+    id: 'pergo-modern9mm', name: 'Pergo - Modern Plank', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
+    price: '480.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['9mm', 'AquaSafe', 'Bản dài hiện đại'],
+    img: 'images/sangopergo.jpg',
+    desc: 'Bộ sưu tập Modern Plank 9mm mang đến vân gỗ sắc sảo, chống nước bề mặt với công nghệ AquaSafe độc quyền.',
+    gallery: [
+      'images/sangopergo.jpg','images/134.jpg','images/135.jpg','images/136.jpg','images/137.jpg','images/138.jpg',
+      'images/139.jpg','images/140.jpg','images/141.jpg','images/142.jpg','images/143.jpg','images/144.jpg','images/145.jpg',
+      'images/146.jpg','images/147.jpg','images/148.jpg','images/149.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu chính hãng từ Bỉ' },
+      { label: 'Quy cách', value: '1380 x 190 x 9mm' },
+      { label: 'Chất liệu', value: 'Gỗ công nghiệp Châu Âu cao cấp' },
+      { label: 'Cốt lõi', value: 'HDF AquaSafe (kháng nước bề mặt)' },
+      { label: 'Cấp mài mòn', value: 'Class 32' },
+      { label: 'Bề mặt', value: 'Rãnh V tinh tế, vân gỗ 100% tự nhiên' },
+      { label: 'Hèm khóa', value: 'Uniclic (chắc chắn hàng đầu thế giới)' },
+      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Phù hợp', value: 'Nhà phố, biệt thự, không gian cần vẻ hiện đại châu Âu' }
+    ]
+  },
+  {
+    id: 'pergo-sensation', name: 'Pergo - Sensation', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo', badge: 'Đỉnh Cao',
+    price: '560.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['8mm', 'TitanX™', 'Vân gỗ 3D'],
+    img: 'images/sangopergo.jpg',
+    desc: 'Dòng Sensation nổi tiếng với rãnh V ép vân chân thực đến không ngờ. Lớp phủ TitanX chống xước tốt nhất thế giới.',
+    gallery: ['images/sangopergo.jpg','images/150.jpg','images/151.jpg'],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu chính hãng từ Bỉ' },
+      { label: 'Quy cách', value: '1380 x 190 x 8mm' },
+      { label: 'Chất liệu', value: 'Gỗ công nghiệp Bỉ' },
+      { label: 'Cốt lõi', value: 'HDF AquaSafe' },
+      { label: 'Cấp mài mòn', value: 'Class 32' },
+      { label: 'Bề mặt', value: 'Ép vân rãnh V đồng điệu (Genuine™ Wood)' },
+      { label: 'Hèm khóa', value: 'PerfectFold™ 3.0 / Uniclic' },
+      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Phù hợp', value: 'Biệt thự, showroom, không gian cao cấp' }
+    ]
+  },
+  {
+    id: 'pergo-widelong', name: 'Pergo - Wide Long', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
+    price: '590.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['9.5mm', 'Bản to & dài', 'Không gian lớn'],
+    img: 'images/sangopergo.jpg',
+    desc: 'Kích thước ván sàn siêu lớn tạo cảm giác nới rộng không gian, phô diễn trọn vẹn đường vân gỗ Châu Âu tuyệt đẹp.',
+    gallery: ['images/sangopergo.jpg','images/152.jpg','images/153.jpg','images/154.jpg','images/155.jpg','images/156.jpg','images/157.jpg'],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu chính hãng từ Bỉ' },
+      { label: 'Quy cách', value: '2050 x 240 x 9.5mm (bản cực lớn)' },
+      { label: 'Chất liệu', value: 'Gỗ công nghiệp Châu Âu' },
+      { label: 'Cốt lõi', value: 'HDF AquaSafe cao cấp' },
+      { label: 'Cấp mài mòn', value: 'Class 32' },
+      { label: 'Bề mặt', value: 'Cảm giác gỗ thật hoàn hảo' },
+      { label: 'Hèm khóa', value: 'Uniclic' },
+      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Phù hợp', value: 'Không gian rộng, phòng khách lớn muốn tạo cảm giác nới rộng' }
+    ]
+  },
+  {
+    id: 'pergo-visby', name: 'Pergo - Visby', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
+    price: '460.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['8mm', 'Bắc Âu', 'Tinh tế'],
+    img: 'images/sangopergo.jpg',
+    desc: 'Dòng Visby mang đậm phong cách thiết kế Scandinavian (Bắc Âu), tông màu sáng, thanh lịch và mộc mạc.',
+    gallery: ['images/sangopergo.jpg','images/158.jpg','images/159.jpg','images/160.jpg','images/161.jpg','images/162.jpg','images/163.jpg','images/164.jpg','images/165.jpg','images/166.jpg','images/167.jpg'],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu chính hãng từ Bỉ' },
+      { label: 'Quy cách', value: '1380 x 190 x 8mm' },
+      { label: 'Chất liệu', value: 'Gỗ Bỉ nguyên chuẩn' },
+      { label: 'Cốt lõi', value: 'HDF chịu ẩm tốt' },
+      { label: 'Cấp mài mòn', value: 'Class 32' },
+      { label: 'Bề mặt', value: 'Phủ sần nhẹ, tự nhiên' },
+      { label: 'Hèm khóa', value: 'Uniclic' },
+      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Phù hợp', value: 'Không gian phong cách tối giản, tông màu sáng' }
+    ]
+  },
+  {
+    id: 'pergo-bergen', name: 'Pergo - Bergen', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
+    price: '465.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['8mm', 'Cổ điển ấm áp', 'Uniclic'],
+    img: 'images/sangopergo.jpg',
+    desc: 'Dòng Bergen hội tụ những tông màu gỗ sồi truyền thống, ấm áp, kết hợp hèm khóa Uniclic chắc chắn không khe hở.',
+    gallery: ['images/sangopergo.jpg','images/168.jpg','images/169.jpg','images/170.jpg','images/171.jpg','images/172.jpg','images/173.jpg'],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu chính hãng từ Bỉ' },
+      { label: 'Quy cách', value: '1380 x 156 x 8mm' },
+      { label: 'Chất liệu', value: 'Gỗ nhập khẩu Bỉ' },
+      { label: 'Cốt lõi', value: 'HDF cao cấp' },
+      { label: 'Cấp mài mòn', value: 'Class 32' },
+      { label: 'Bề mặt', value: 'Vân lụa, mướt chân' },
+      { label: 'Hèm khóa', value: 'Uniclic, chống hở mạch' },
+      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Phù hợp', value: 'Không gian cổ điển, tông màu gỗ sồi ấm áp' }
+    ]
+  },
+  {
+    id: 'pergo-dremen', name: 'Pergo - Dremen', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
+    price: '470.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['8mm', 'Họa tiết đặc biệt', 'AquaSafe'],
+    img: 'images/sangopergo.jpg',
+    desc: 'Bộ sưu tập Dremen mang những tông màu và thiết kế phá cách, thể hiện cá tính riêng của gia chủ.',
+    gallery: ['images/sangopergo.jpg','images/174.jpg','images/175.jpg','images/176.jpg','images/177.jpg','images/178.jpg','images/179.jpg','images/180.jpg','images/181.jpg'],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu chính hãng từ Bỉ' },
+      { label: 'Quy cách', value: '1200 x 190 x 8mm' },
+      { label: 'Chất liệu', value: 'Gỗ công nghiệp Bỉ' },
+      { label: 'Cốt lõi', value: 'HDF kháng ẩm AquaSafe' },
+      { label: 'Cấp mài mòn', value: 'Class 32' },
+      { label: 'Bề mặt', value: 'Đậm nét phong cách Châu Âu' },
+      { label: 'Hèm khóa', value: 'Uniclic' },
+      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Phù hợp', value: 'Không gian cá tính, muốn tạo dấu ấn riêng' }
+    ]
+  },
+  {
+    id: 'pergo-hoavan', name: 'Pergo - Dòng Hoa Văn', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo', badge: 'Nghệ Thuật',
+    price: '650.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    specs: ['8mm', 'Vân nghệ thuật', 'Độc bản'],
+    img: 'images/sangopregohoavan.jpg',
+    desc: 'Dòng sản phẩm có vân gỗ và hoa văn nghệ thuật, đem lại sự sang trọng, độc bản và tính thẩm mỹ cực cao.',
+    gallery: ['images/sangopregohoavan.jpg','images/182.jpg','images/183.jpg','images/184.jpg','images/185.jpg'],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Nhập khẩu chính hãng từ Bỉ' },
+      { label: 'Quy cách', value: '1200 x 396 x 8mm' },
+      { label: 'Chất liệu', value: 'Gỗ Bỉ (Châu Âu)' },
+      { label: 'Cốt lõi', value: 'HDF chuẩn Châu Âu' },
+      { label: 'Cấp mài mòn', value: 'Class 32' },
+      { label: 'Bề mặt', value: 'Vân hoa văn độc bản' },
+      { label: 'Hèm khóa', value: 'Uniclic' },
+      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Phù hợp', value: 'Sảnh lớn, phòng khách cần điểm nhấn nghệ thuật' }
+    ]
+  }
+];
+
+// Đánh giá khách hàng
+const reviews = [
+  { stars: 5, text: 'Nhà mình lát sàn gỗ INOVAR 12mm, Sàn Gỗ Bảo Ân mang mẫu tận nhà tư vấn rất kỹ, thi công nhanh gọn, sạch sẽ.', init: 'MH', name: 'Chị Minh Hà', loc: 'Thị xã Đức Phổ' },
+  { stars: 5, text: 'Sàn nhựa dán keo giá hợp lý, thi công 1 ngày là xong, bám chắc, không hề bung mép sau nhiều tháng sử dụng.', init: 'TL', name: 'Anh Thanh Long', loc: 'Mộ Đức' },
+  { stars: 5, text: 'Team thợ làm việc chuyên nghiệp, tư vấn nhiệt tình, giá báo trọn gói không phát sinh thêm chi phí nào.', init: 'KV', name: 'Anh Kim Vũ', loc: 'Sa Huỳnh' },
+  { stars: 4, text: 'Sàn gỗ Pergo nhập khẩu Bỉ đẹp và sang, đúng như catalogue anh Bảo Ân mang tới xem, rất hài lòng.', init: 'PN', name: 'Chị Phương Nam', loc: 'Phổ Ninh' },
+  { stars: 5, text: 'Nhà ở gần biển hay ẩm, được tư vấn dùng sàn nhựa King chống nước, dùng hơn năm nay vẫn rất ổn định.', init: 'DH', name: 'Anh Duy Hoàng', loc: 'Hoài Nhơn, Bình Định' },
+  { stars: 5, text: 'Giá cả rõ ràng ngay từ đầu, đội thi công đúng hẹn, dọn dẹp sạch sẽ sau khi hoàn thiện công trình.', init: 'TT', name: 'Chị Thu Trang', loc: 'Thị xã Đức Phổ' }
+];
+
+// ==========================================
+// TỐI ƯU UI/UX - LOGIC PHÂN LOẠI 2 BƯỚC
+// ==========================================
+const brandTabsData = {
+  'nhua': [
+    { label: 'Tất cả Hãng (Nhựa)', match: p => true },
+    { label: 'Dán Keo', match: p => p.name.includes('Keo') },
+    { label: 'GLO TEX', match: p => p.name.includes('GLO TEX') },
+    { label: 'NEOFLOOR', match: p => p.name.includes('NEOFLOOR') },
+    { label: 'King', match: p => p.name.includes('King') }
+  ],
+  'go': [
+    { label: 'Tất cả Hãng (Gỗ)', match: p => true },
+    { label: 'Gỗ GLOMAX', match: p => p.cat === 'go-glomax' },
+    { label: 'Gỗ INOVAR', match: p => p.cat === 'go-inovar' },
+    { label: 'Gỗ PERGO', match: p => p.cat === 'go-pergo' }
+  ]
+};
+
+function selectCategory(cat) {
+  document.getElementById('step-1-category').style.display = 'none';
+  document.getElementById('step-2-products').style.display = 'block';
+  renderBrandTabs(cat);
+  filterByBrandTab(cat, 0);
+  document.getElementById('san-pham').scrollIntoView({ behavior: 'smooth' });
+}
+
+function backToCategory() {
+  document.getElementById('step-1-category').style.display = 'grid';
+  document.getElementById('step-2-products').style.display = 'none';
+}
+
+function renderBrandTabs(cat) {
+  const tabsContainer = document.getElementById('dynamic-tabs');
+  tabsContainer.innerHTML = brandTabsData[cat].map((tab, index) => `
+    <button class="tab ${index === 0 ? 'active' : ''}" onclick="filterByBrandTab('${cat}', ${index}, this)">${tab.label}</button>
+  `).join('');
+}
+
+function filterByBrandTab(cat, tabIndex, btnElement = null) {
+  if (btnElement) {
+    document.querySelectorAll('#dynamic-tabs .tab').forEach(t => t.classList.remove('active'));
+    btnElement.classList.add('active');
+  }
+  
+  const matcher = brandTabsData[cat][tabIndex].match;
+  let itemsToRender = [];
+  
+  if (cat === 'nhua') {
+    itemsToRender = products.filter(p => p.cat === 'san-nhua' && matcher(p));
+  } else {
+    itemsToRender = products.filter(p => p.cat.startsWith('go-') && matcher(p));
+  }
+  
+  renderProductsDOM(itemsToRender);
+}
+
+function renderProductsDOM(filteredProducts) {
+  const g = document.getElementById('productsGrid');
+  if(filteredProducts.length === 0) {
+    g.innerHTML = '<p style="color:var(--text-mid);font-style:italic;">Đang cập nhật sản phẩm cho danh mục này...</p>';
+    return;
+  }
+
+  g.innerHTML = filteredProducts.map(p => `
+    <div class="product-card" onclick="openModal('${p.id}')">
+      <div class="product-visual">
+        <img src="${p.img}" alt="${p.name} - ${p.origin}" loading="lazy" onerror="this.src='https://via.placeholder.com/600x450?text=Chưa+Cập+Nhật+Ảnh'">
+        ${p.badge ? `<div class="product-badge">${p.badge}</div>` : ''}
+        <div class="product-zoom-hint">🔍 ${p.gallery.length} ảnh</div>
+      </div>
+      <div class="product-info">
+        <div class="product-name">${p.name}</div>
+        <div class="product-origin">${p.origin}</div>
+        <div class="product-specs">${p.specs.map(s=>`<span class="spec">${s}</span>`).join('')}</div>
+        <div class="product-desc">${p.desc}</div>
+        <div class="product-footer">
+          <div>
+            <div class="price">${p.price}đ <sub>/${p.unit}</sub></div>
+          </div>
+          <button class="add-btn">Xem chi tiết</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function goToCategoryAndTab(cat, tabIndex) {
+  selectCategory(cat);
+  const tabs = document.querySelectorAll('#dynamic-tabs .tab');
+  if(tabs[tabIndex]) {
+    filterByBrandTab(cat, tabIndex, tabs[tabIndex]);
+  }
+}
+
+// Modal & Lightbox Logic
+let currentSelectedProduct = '';
+let currentGallery = [];
+let currentImgIndex = 0;
+
+function openModal(productId) {
+  const p = products.find(item => item.id === productId);
+  if (!p) return;
+  
+  currentSelectedProduct = p.name;
+  currentGallery = p.gallery;
+  currentImgIndex = 0;
+  
+  document.getElementById('modalTitle').textContent = p.name;
+  document.getElementById('modalOrigin').textContent = p.origin;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalPriceValue').innerHTML = `${p.price}đ <sub>/${p.unit}</sub>`;
+  document.getElementById('modalPriceNote').textContent = p.priceNote || '';
+  
+  renderMainImg();
+  
+  const thumbList = document.getElementById('modalThumbList');
+  thumbList.innerHTML = p.gallery.map((imgSrc, index) => `
+    <img src="${imgSrc}" class="${index === 0 ? 'active' : ''}" onclick="selectThumb(${index})" alt="${p.name} - ảnh ${index + 1}" onerror="this.src='https://via.placeholder.com/150x150?text=Trống'">
+  `).join('');
+  
+  const specsTable = document.getElementById('modalSpecs');
+  specsTable.innerHTML = p.fullSpecs.map(spec => `
+    <tr>
+      <td>${spec.label}</td>
+      <td>${spec.value}</td>
+    </tr>
+  `).join('');
+  
+  document.getElementById('productModal').classList.add('active');
+  document.body.classList.add('modal-open');
+}
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('active');
+  document.body.classList.remove('modal-open');
+}
+
+function renderMainImg() {
+  const mainImg = document.getElementById('modalMainImg');
+  mainImg.src = currentGallery[currentImgIndex];
+  mainImg.onerror = function() { this.src='https://via.placeholder.com/900x675?text=Chưa+Cập+Nhật+Ảnh'; };
+  document.getElementById('mainImgCounter').textContent = `${currentImgIndex + 1}/${currentGallery.length}`;
+
+  const thumbs = document.getElementById('modalThumbList').querySelectorAll('img');
+  thumbs.forEach((t, i) => t.classList.toggle('active', i === currentImgIndex));
+  const activeThumb = thumbs[currentImgIndex];
+  if (activeThumb) activeThumb.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+}
+
+function selectThumb(index) {
+  currentImgIndex = index;
+  renderMainImg();
+}
+
+function stepMainImg(dir) {
+  if (!currentGallery.length) return;
+  currentImgIndex = (currentImgIndex + dir + currentGallery.length) % currentGallery.length;
+  renderMainImg();
+}
+
+document.getElementById('productModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+function openLightbox() {
+  if (!currentGallery.length) return;
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightboxImg');
+  lbImg.src = currentGallery[currentImgIndex];
+  lbImg.onerror = function() { this.src='https://via.placeholder.com/1200x900?text=Chưa+Cập+Nhật+Ảnh'; };
+  document.getElementById('lightboxCounter').textContent = `${currentImgIndex + 1}/${currentGallery.length}`;
+  lb.classList.add('active');
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('active');
+}
+
+function stepLightbox(dir) {
+  if (!currentGallery.length) return;
+  currentImgIndex = (currentImgIndex + dir + currentGallery.length) % currentGallery.length;
+  const lbImg = document.getElementById('lightboxImg');
+  lbImg.src = currentGallery[currentImgIndex];
+  lbImg.onerror = function() { this.src='https://via.placeholder.com/1200x900?text=Chưa+Cập+Nhật+Ảnh'; };
+  document.getElementById('lightboxCounter').textContent = `${currentImgIndex + 1}/${currentGallery.length}`;
+  renderMainImg();
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+document.addEventListener('keydown', function(e) {
+  const lbActive = document.getElementById('lightbox').classList.contains('active');
+  const modalActive = document.getElementById('productModal').classList.contains('active');
+  if (!lbActive && !modalActive) return;
+  if (e.key === 'Escape') { lbActive ? closeLightbox() : closeModal(); }
+  if (e.key === 'ArrowLeft') { lbActive ? stepLightbox(-1) : stepMainImg(-1); }
+  if (e.key === 'ArrowRight') { lbActive ? stepLightbox(1) : stepMainImg(1); }
+});
+
+function triggerOrder() {
+  closeModal();
+  const note = document.getElementById('formNote');
+  note.value = `Tôi đã xem và rất quan tâm đến mẫu: "${currentSelectedProduct}". Nhờ Sàn Gỗ Bảo Ân tư vấn và báo giá chi tiết!`;
+  
+  document.getElementById('lien-he').scrollIntoView({behavior:'smooth'});
+  showToast(`✓ Đã tự động ghi chú mẫu "${currentSelectedProduct}" vào form. Vui lòng để lại SĐT để nhận báo giá!`);
+  
+  const select = document.getElementById('formSelect');
+  for (let i = 0; i < select.options.length; i++) {
+    if (currentSelectedProduct.toLowerCase().includes(select.options[i].text.toLowerCase().replace('sàn nhựa ', '').replace('sàn gỗ ', ''))) {
+      select.selectedIndex = i;
+      break;
+    }
+  }
+}
+
+// Render Reviews
+function renderReviews() {
+  document.getElementById('reviewsGrid').innerHTML = reviews.map(r => `
+    <div class="review-card">
+      <div class="stars">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div>
+      <div class="review-text">"${r.text}"</div>
+      <div class="reviewer">
+        <div class="reviewer-avatar">${r.init}</div>
+        <div><div class="reviewer-name">${r.name}</div><div class="reviewer-loc">${r.loc}</div></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ==========================================
+// BẢNG GIÁ - DẠNG ACCORDION ĐƠN GIẢN
+// Bấm vào tên sản phẩm để xổ xuống xem giá/thông số
+// ==========================================
+function renderPriceAccordion() {
+  const acFrom = (fullSpecs) => {
+    const row = fullSpecs.find(s => s.label === 'Cấp mài mòn');
+    return row ? row.value : '—';
+  };
+  const thicknessFrom = (specs) => specs[0] || '—';
+
+  let itemIndex = 0;
+  const renderProductItem = (p) => {
+    const itemId = `priceItem${itemIndex++}`;
+    return `
+      <div class="price-item" id="${itemId}">
+        <div class="price-item-head" onclick="event.stopPropagation(); togglePriceItem('${itemId}')">
+          <div class="price-item-name">${p.name}<span>${p.origin}</span></div>
+          <div class="price-item-right">
+            <div class="price-item-price">${p.price}đ <sub>/${p.unit}</sub></div>
+            <div class="price-item-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+          </div>
+        </div>
+        <div class="price-item-body">
+          <div class="price-item-body-inner">
+            <div class="price-item-spec">Độ dày: <strong>${thicknessFrom(p.specs)}</strong></div>
+            <div class="price-item-spec">Cấp mài mòn: <strong>${acFrom(p.fullSpecs)}</strong></div>
+            ${p.priceNote ? `<div class="price-item-pnote">${p.priceNote}</div>` : ''}
+            <button class="price-item-detail-btn" onclick="event.stopPropagation(); openModal('${p.id}')">Xem chi tiết & hình ảnh</button>
+          </div>
+        </div>
+      </div>
+    `;
+  };
+
+  // Cấp 1: chỉ 2 danh mục lớn - Sàn nhựa / Sàn gỗ
+  const nhuaItems = products.filter(p => p.cat === 'san-nhua');
+  const goGroups = [
+    { key: 'go-glomax', label: 'GLOMAX' },
+    { key: 'go-inovar', label: 'INOVAR (Malaysia)' },
+    { key: 'go-pergo', label: 'PERGO (Bỉ)' }
+  ];
+  const goTotal = products.filter(p => p.cat.startsWith('go-')).length;
+
+  let html = '';
+
+  // --- Danh mục: Sàn nhựa ---
+  html += `
+    <div class="price-cat" id="priceCatNhua">
+      <div class="price-cat-head" onclick="togglePriceCat('priceCatNhua')">
+        <div class="price-cat-name">
+          <div class="price-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.5v11L12 22l-9-4.5v-11L12 2z"/></svg></div>
+          SÀN NHỰA <span class="price-cat-count">(${nhuaItems.length} sản phẩm)</span>
+        </div>
+        <div class="price-cat-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"/></svg></div>
+      </div>
+      <div class="price-cat-body">
+        ${nhuaItems.map(renderProductItem).join('')}
+      </div>
+    </div>
+  `;
+
+  // --- Danh mục: Sàn gỗ (gồm các hãng con) ---
+  let goBody = '';
+  goGroups.forEach(grp => {
+    const items = products.filter(p => p.cat === grp.key);
+    if (!items.length) return;
+    goBody += `<div class="price-group-title">${grp.label}</div>`;
+    goBody += items.map(renderProductItem).join('');
+  });
+
+  html += `
+    <div class="price-cat" id="priceCatGo">
+      <div class="price-cat-head" onclick="togglePriceCat('priceCatGo')">
+        <div class="price-cat-name">
+          <div class="price-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
+          SÀN GỖ <span class="price-cat-count">(${goTotal} sản phẩm - GLOMAX, INOVAR, PERGO)</span>
+        </div>
+        <div class="price-cat-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"/></svg></div>
+      </div>
+      <div class="price-cat-body">
+        ${goBody}
+      </div>
+    </div>
+  `;
+
+  document.getElementById('priceAccordion').innerHTML = html;
+}
+
+function togglePriceCat(catId) {
+  const el = document.getElementById(catId);
+  if (!el) return;
+  const isOpen = el.classList.contains('open');
+  // Đóng danh mục khác để giao diện gọn, không chiếm nhiều không gian
+  document.querySelectorAll('.price-cat.open').forEach(cat => {
+    cat.classList.remove('open');
+    cat.querySelectorAll('.price-item.open').forEach(item => item.classList.remove('open'));
+  });
+  if (!isOpen) el.classList.add('open');
+}
+
+function togglePriceItem(itemId) {
+  const el = document.getElementById(itemId);
+  if (!el) return;
+  const isOpen = el.classList.contains('open');
+  // Đóng các sản phẩm khác trong cùng danh mục để danh sách gọn gàng
+  const parentCat = el.closest('.price-cat-body');
+  if (parentCat) {
+    parentCat.querySelectorAll('.price-item.open').forEach(item => item.classList.remove('open'));
+  }
+  if (!isOpen) el.classList.add('open');
+}
+
+// Form Submit -> Chuyển hướng sang tin nhắn Zalo/SMS
+function handleSubmit(e) {
+  e.preventDefault();
+  
+  const name = document.getElementById('formName').value;
+  const phone = document.getElementById('formPhone').value;
+  const areaInput = document.getElementById('formArea');
+  const area = areaInput && areaInput.value ? areaInput.value : 'Chưa xác định';
+  const type = document.getElementById('formSelect').value;
+  const note = document.getElementById('formNote').value || 'Không có';
+
+  const message = `Chào Sàn Gỗ Bảo Ân, tôi cần tư vấn thi công sàn:\n- Tên khách hàng: ${name}\n- SĐT: ${phone}\n- Diện tích dự kiến: ${area} m²\n- Sản phẩm quan tâm: ${type}\n- Ghi chú: ${note}`;
+
+  const sdtBaoAn = "0363333426"; 
+
+  navigator.clipboard.writeText(message).then(() => {
+    showToast(`✓ Đã sao chép thông tin! Hệ thống đang chuyển sang Zalo, hãy dán (Paste) vào khung chat nhé.`);
+    setTimeout(() => {
+      window.open(`https://zalo.me/${sdtBaoAn}`, '_blank');
+    }, 2500);
+  }).catch(() => {
+    showToast(`✓ Đang chuyển hướng sang tin nhắn SMS...`);
+    setTimeout(() => {
+      window.location.href = `sms:${sdtBaoAn}?body=${encodeURIComponent(message)}`;
+    }, 1500);
+  });
+
+  e.target.reset();
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+renderReviews();
+renderPriceAccordion();
+</script>
+</body>
+</html>
