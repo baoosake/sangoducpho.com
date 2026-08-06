@@ -111,7 +111,6 @@
   .product-desc { font-size: 0.82rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; }
   .product-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(107,68,34,0.08); padding-top: 0.8rem; }
   .price { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--wood-dark); font-weight: 700; }
-  .price sub { font-size: 0.68rem; font-weight: 400; color: var(--text-light); }
   .add-btn { background: transparent; color: var(--wood-dark); border: 1px solid var(--wood-dark); cursor: pointer; padding: 0.4rem 0.9rem; font-size: 0.8rem; font-weight: 600; border-radius: 2px; transition: all 0.2s; }
   .product-card:hover .add-btn { background: var(--wood-dark); color: var(--white); }
 
@@ -271,8 +270,6 @@
     .lightbox-nav { width: 40px; height: 40px; }
     .category-split { grid-template-columns: 1fr; }
     .cat-title { font-size: 1.8rem; }
-    .price-item-head { flex-wrap: wrap; }
-    .price-item-detail-btn { margin-left: 0; }
   }
 </style>
 </head>
@@ -282,7 +279,7 @@
 <nav>
   <a href="#" class="logo-group">
     <div class="logo">Sàn Gỗ <span>Bảo Ân</span></div>
-    <div class="logo-sub">Đại lý phân phối sàn gỗ, sàn nhựa</div>
+    <div class="logo-sub">Đại lý phân phối sàn gỗ, sàn nhựa * Mộc Gia Phúc</div>
   </a>
   <ul class="nav-links">
     <li><a href="#san-pham">Sản phẩm phân phối</a></li>
@@ -585,8 +582,8 @@
 const products = [
   // --- NHÓM SÀN NHỰA ---
   {
-    id: 'san-nhua-keo', name: 'Sàn Nhựa Dán Keo', origin: 'Sản xuất trong nước', cat: 'san-nhua', badge: 'Giá Tốt Nhất',
-    price: '115.000', priceNote: 'Bản 2mm: 115.000đ · Bản 3mm: 135.000đ', unit: 'm²',
+    id: 'san-nhua-keo', name: 'Sàn Nhựa Dán Keo', origin: 'Sản xuất trong nước', cat: 'san-nhua', badge: 'Tiết kiệm',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['2mm/3mm', 'Class 32', 'Dán keo nhanh'],
     img: 'sannhuadankeo.jpg',
     desc: 'Giải pháp lát sàn tiết kiệm chi phí, bám dính chắc chắn. Rất phù hợp cho cửa hàng, quán cafe hoặc cải tạo nhanh.',
@@ -608,17 +605,38 @@ const products = [
     ]
   },
   {
-    id: 'san-nhua-glotex', name: 'Sàn Nhựa GLO TEX', origin: 'Phân phối chính hãng GLO TEX', cat: 'san-nhua',
-    price: '245.000', priceNote: 'Bản 4mm: 245.000đ · Bản 5mm: 275.000đ', unit: 'm²',
+    id: 'san-nhua-hemkhoa', name: 'Sàn Nhựa Hèm Khóa', origin: 'Sản xuất trong nước, phân phối chính hãng', cat: 'san-nhua', badge: '',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
+    specs: ['4mm - 6mm SPC', 'Class 33', 'Không dùng keo'],
+    img: 'sannhuahemkhoa.jpg',
+    desc: 'Sàn nhựa hèm khóa lắp ghép nhanh chóng, hoàn toàn kháng nước và không phụ thuộc vào chất lượng nền cũ. Không cần dùng keo dán.',
+    gallery: [
+      'sannhuahemkhoa.jpg','186.jpg','187.jpg','188.jpg','189.jpg'
+    ],
+    fullSpecs: [
+      { label: 'Xuất xứ', value: 'Sản xuất trong nước, phân phối chính hãng' },
+      { label: 'Quy cách', value: 'Nhiều kích thước (4mm, 5mm, 6mm)' },
+      { label: 'Chất liệu', value: 'Nhựa SPC (Stone Plastic Composite)' },
+      { label: 'Cốt lõi', value: 'Cốt cứng SPC bột đá kháng nước 100%' },
+      { label: 'Cấp mài mòn', value: 'Class 33' },
+      { label: 'Bề mặt', value: 'Sần vân gỗ tự nhiên' },
+      { label: 'Hèm khóa', value: 'Hèm khóa thông minh không cần keo' },
+      { label: 'Bảo hành', value: '10 năm chính hãng' },
+      { label: 'Phù hợp', value: 'Nhà ở, căn hộ, văn phòng, nơi có độ ẩm cao' }
+    ]
+  },
+  {
+    id: 'san-nhua-glotex', name: 'Sàn Nhựa GLOTEX', origin: 'Phân phối chính hãng GLOTEX', cat: 'san-nhua',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['4mm/5mm SPC', 'Class 33', 'Chống nước 100%'],
     img: 'sannhuaglotex.jpg',
-    desc: 'Sàn nhựa SPC GLO TEX chính hãng. Lớp phủ bền bỉ, không lo cong vênh, hoàn hảo cho tầng trệt và khu vực bếp.',
+    desc: 'Sàn nhựa SPC GLOTEX chính hãng. Lớp phủ bền bỉ, không lo cong vênh, hoàn hảo cho tầng trệt và khu vực bếp.',
     gallery: [
       'sannhuaglotex.jpg','16.jpg','17.jpg','18.jpg','19.jpg',
       '20.jpg','21.jpg'
     ],
     fullSpecs: [
-      { label: 'Xuất xứ', value: 'Nhập khẩu, phân phối chính hãng GLO TEX' },
+      { label: 'Xuất xứ', value: 'Nhập khẩu, phân phối chính hãng GLOTEX' },
       { label: 'Quy cách', value: '915 x 157 x 2mm (hoặc 4mm)' },
       { label: 'Chất liệu', value: 'Nhựa SPC (Stone Plastic Composite)' },
       { label: 'Cốt lõi', value: 'Cốt nhựa cứng SPC bột đá, chống nước 100%' },
@@ -631,7 +649,7 @@ const products = [
   },
   {
     id: 'san-nhua-neofloor', name: 'Sàn Nhựa NEOFLOOR', origin: 'Phân phối chính hãng NEOFLOOR', cat: 'san-nhua',
-    price: '255.000', priceNote: 'Bản 4mm tiêu chuẩn', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['4mm SPC', 'Class 33', 'Chống cháy lan'],
     img: 'sannhuaneofloor.jpg',
     desc: 'Thiết kế màu sắc theo xu hướng hiện đại, cốt nhựa cứng cáp chịu lực cực tốt, thân thiện môi trường.',
@@ -653,7 +671,7 @@ const products = [
   },
   {
     id: 'san-nhua-king', name: 'Sàn Nhựa King', origin: 'Phân phối chính hãng King SPC', cat: 'san-nhua',
-    price: '265.000', priceNote: 'Bản 4mm: 265.000đ · Bản 6mm: 310.000đ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['4mm/6mm SPC', 'Class 33', 'Chống trơn R10'],
     img: 'sannhuaking.jpg',
     desc: 'Hèm khóa liên kết chặt chẽ, kháng nước tuyệt đối, đáp ứng rất tốt cho môi trường khí hậu ven biển.',
@@ -677,7 +695,7 @@ const products = [
   // --- NHÓM SÀN GỖ GLOMAX ---
   {
     id: 'glomax-8mm', name: 'Sàn Gỗ GLOMAX 8mm', origin: 'Gỗ công nghiệp, cốt HDF', cat: 'go-glomax',
-    price: '195.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['8mm', 'AC4', 'Giá tiết kiệm'],
     img: 'sangoglomax8mm.jpg',
     desc: 'Dòng sản phẩm tiêu chuẩn 8mm mang đến không gian sang trọng với mức chi phí tối ưu nhất cho phòng ngủ, chung cư.',
@@ -699,7 +717,7 @@ const products = [
   },
   {
     id: 'glomax-12mm', name: 'Sàn Gỗ GLOMAX 12mm', origin: 'Gỗ công nghiệp, cốt HDF', cat: 'go-glomax', badge: 'Chắc Chắn',
-    price: '245.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['12mm', 'AC4', 'Đi êm chân'],
     img: 'sangoglomax12mm.jpg',
     desc: 'Bản 12mm dày dặn giúp bước chân êm ái, đầm chắc hơn. Phù hợp cho không gian rộng như phòng khách, nhà phố.',
@@ -724,7 +742,7 @@ const products = [
   // --- NHÓM SÀN GỖ INOVAR (MALAYSIA) ---
   {
     id: 'inovar-8mm', name: 'INOVAR 8mm Bản Tiêu Chuẩn', origin: 'Nhập khẩu Malaysia', cat: 'go-inovar',
-    price: '265.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['8mm', 'AC4', 'Chống mối mọt'],
     img: 'sangoinovar8mm.jpg',
     desc: 'Sàn gỗ Inovar 8mm nhập khẩu 100% Malaysia. Giải pháp chống ẩm, chống mối mọt với chi phí hợp lý.',
@@ -747,7 +765,7 @@ const products = [
   },
   {
     id: 'inovar-12mm', name: 'INOVAR 12mm Cao Cấp', origin: 'Nhập khẩu Malaysia', cat: 'go-inovar', badge: 'Bán Chạy',
-    price: '335.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['12mm', 'AC5', 'Siêu cứng'],
     img: 'sangoinovar12mm.jpg',
     desc: 'Dòng 12mm nổi tiếng với cốt gỗ siêu cứng, kháng nước vượt trội, thách thức thời tiết nồm ẩm tại miền Trung.',
@@ -772,7 +790,7 @@ const products = [
   },
   {
     id: 'inovar-xuongca', name: 'INOVAR 12mm Xương Cá', origin: 'Nhập khẩu Malaysia', cat: 'go-inovar', badge: 'Sang Trọng',
-    price: '495.000', priceNote: 'Đã gồm công thi công lát xương cá (Herringbone)', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['12mm', 'Herringbone', 'Đẳng cấp'],
     img: 'sangoinovarxuongca12mm.jpg',
     desc: 'Kiểu lát xương cá mang đậm phong cách Châu Âu, tạo điểm nhấn không gian vô cùng ấn tượng và sang trọng.',
@@ -796,7 +814,7 @@ const products = [
   // --- NHÓM SÀN GỖ PERGO (BỈ) ---
   {
     id: 'pergo-modern9mm', name: 'Pergo - Modern Plank', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
-    price: '480.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['9mm', 'AquaSafe', 'Bản dài hiện đại'],
     img: 'sangopergo.jpg',
     desc: 'Bộ sưu tập Modern Plank 9mm mang đến vân gỗ sắc sảo, chống nước bề mặt với công nghệ AquaSafe độc quyền.',
@@ -819,7 +837,7 @@ const products = [
   },
   {
     id: 'pergo-sensation', name: 'Pergo - Sensation', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo', badge: 'Đỉnh Cao',
-    price: '560.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['8mm', 'TitanX™', 'Vân gỗ 3D'],
     img: 'sangopergo.jpg',
     desc: 'Dòng Sensation nổi tiếng với rãnh V ép vân chân thực đến không ngờ. Lớp phủ TitanX chống xước tốt nhất thế giới.',
@@ -838,7 +856,7 @@ const products = [
   },
   {
     id: 'pergo-widelong', name: 'Pergo - Wide Long', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
-    price: '590.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['9.5mm', 'Bản to & dài', 'Không gian lớn'],
     img: 'sangopergo.jpg',
     desc: 'Kích thước ván sàn siêu lớn tạo cảm giác nới rộng không gian, phô diễn trọn vẹn đường vân gỗ Châu Âu tuyệt đẹp.',
@@ -857,7 +875,7 @@ const products = [
   },
   {
     id: 'pergo-visby', name: 'Pergo - Visby', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
-    price: '460.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['8mm', 'Bắc Âu', 'Tinh tế'],
     img: 'sangopergo.jpg',
     desc: 'Dòng Visby mang đậm phong cách thiết kế Scandinavian (Bắc Âu), tông màu sáng, thanh lịch và mộc mạc.',
@@ -876,7 +894,7 @@ const products = [
   },
   {
     id: 'pergo-bergen', name: 'Pergo - Bergen', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
-    price: '465.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['8mm', 'Cổ điển ấm áp', 'Uniclic'],
     img: 'sangopergo.jpg',
     desc: 'Dòng Bergen hội tụ những tông màu gỗ sồi truyền thống, ấm áp, kết hợp hèm khóa Uniclic chắc chắn không khe hở.',
@@ -895,7 +913,7 @@ const products = [
   },
   {
     id: 'pergo-dremen', name: 'Pergo - Dremen', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo',
-    price: '470.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['8mm', 'Họa tiết đặc biệt', 'AquaSafe'],
     img: 'sangopergo.jpg',
     desc: 'Bộ sưu tập Dremen mang những tông màu và thiết kế phá cách, thể hiện cá tính riêng của gia chủ.',
@@ -914,7 +932,7 @@ const products = [
   },
   {
     id: 'pergo-hoavan', name: 'Pergo - Dòng Hoa Văn', origin: 'Nhập khẩu Bỉ', cat: 'go-pergo', badge: 'Nghệ Thuật',
-    price: '650.000', priceNote: 'Đã gồm phào nẹp & công thợ', unit: 'm²',
+    price: 'Tư vấn báo giá', priceNote: 'Khảo sát & báo giá tận nhà', unit: '',
     specs: ['8mm', 'Vân nghệ thuật', 'Độc bản'],
     img: 'sangopregohoavan.jpg',
     desc: 'Dòng sản phẩm có vân gỗ và hoa văn nghệ thuật, đem lại sự sang trọng, độc bản và tính thẩm mỹ cực cao.',
@@ -950,6 +968,7 @@ const brandTabsData = {
   'nhua': [
     { label: 'Tất cả Hãng (Nhựa)', match: p => true },
     { label: 'Dán Keo', match: p => p.name.includes('Keo') },
+    { label: 'Hèm Khóa', match: p => p.name.includes('Hèm Khóa') }, // THÊM LỌC HÈM KHÓA VÀO ĐÂY
     { label: 'GLO TEX', match: p => p.name.includes('GLO TEX') },
     { label: 'NEOFLOOR', match: p => p.name.includes('NEOFLOOR') },
     { label: 'King', match: p => p.name.includes('King') }
@@ -1021,7 +1040,7 @@ function renderProductsDOM(filteredProducts) {
         <div class="product-desc">${p.desc}</div>
         <div class="product-footer">
           <div>
-            <div class="price">${p.price}đ <sub>/${p.unit}</sub></div>
+            <div class="price">${p.price}</div>
           </div>
           <button class="add-btn">Xem chi tiết</button>
         </div>
@@ -1054,7 +1073,7 @@ function openModal(productId) {
   document.getElementById('modalTitle').textContent = p.name;
   document.getElementById('modalOrigin').textContent = p.origin;
   document.getElementById('modalDesc').textContent = p.desc;
-  document.getElementById('modalPriceValue').innerHTML = `${p.price}đ <sub>/${p.unit}</sub>`;
+  document.getElementById('modalPriceValue').innerHTML = p.price; // ĐÃ SỬA THÀNH p.price
   document.getElementById('modalPriceNote').textContent = p.priceNote || '';
   
   renderMainImg();
