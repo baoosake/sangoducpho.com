@@ -165,51 +165,6 @@
   .lightbox-nav.next { right: 16px; }
   .lightbox-counter { position: absolute; bottom: -38px; left: 50%; transform: translateX(-50%); color: rgba(255,255,255,0.85); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.04em; }
   
-  /* Price Section - SIMPLIFIED ACCORDION */
-  #bang-gia { background: var(--cream-dark); }
-  .price-note { font-size: 0.82rem; color: var(--text-light); background: rgba(200,146,42,0.1); border: 1px dashed rgba(200,146,42,0.4); padding: 0.9rem 1.1rem; border-radius: 4px; margin: 1.5rem 0 2rem; max-width: 720px; }
-  .price-note strong { color: var(--wood-dark); }
-
-  .price-accordion { background: var(--white); border: 1px solid rgba(107,68,34,0.1); border-radius: 6px; overflow: hidden; }
-
-  /* Cấp 1: Danh mục lớn (Sàn nhựa / Sàn gỗ) */
-  .price-cat { border-bottom: 1px solid rgba(107,68,34,0.1); }
-  .price-cat:last-child { border-bottom: none; }
-  .price-cat-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.4rem; cursor: pointer; background: var(--wood-dark); color: var(--white); transition: background 0.2s; }
-  .price-cat-head:hover { background: var(--wood-mid); }
-  .price-cat-name { display: flex; align-items: center; gap: 0.7rem; font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 600; }
-  .price-cat-icon { width: 30px; height: 30px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; background: rgba(200,146,42,0.2); border-radius: 4px; color: var(--gold); }
-  .price-cat-count { font-size: 0.76rem; font-weight: 500; color: rgba(255,255,255,0.65); text-transform: none; letter-spacing: 0; }
-  .price-cat-arrow { width: 20px; height: 20px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: transform 0.25s ease; }
-  .price-cat.open .price-cat-arrow { transform: rotate(180deg); }
-  .price-cat-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; background: var(--cream); }
-  .price-cat.open .price-cat-body { max-height: 4000px; }
-
-  /* Cấp 2: Hãng, hiện bên trong danh mục Sàn gỗ */
-  .price-group-title { background: var(--wood-mid); color: var(--white); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.6rem 1.4rem; }
-
-  /* Cấp 3: Sản phẩm */
-  .price-item { border-bottom: 1px solid rgba(107,68,34,0.08); }
-  .price-item:last-child { border-bottom: none; }
-  .price-item-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.25rem; cursor: pointer; background: var(--white); transition: background 0.2s; }
-  .price-item-head:hover { background: rgba(200,146,42,0.07); }
-  .price-item.open .price-item-head { background: rgba(200,146,42,0.1); }
-  .price-item-name { font-weight: 700; color: var(--wood-dark); font-size: 0.95rem; font-family: 'Playfair Display', serif; }
-  .price-item-name span { display: block; font-weight: 500; color: var(--text-light); font-size: 0.76rem; margin-top: 2px; font-family: 'Inter', sans-serif; }
-  .price-item-right { display: flex; align-items: center; gap: 0.9rem; flex-shrink: 0; }
-  .price-item-price { font-family: 'Playfair Display', serif; font-weight: 700; color: var(--wood-warm); font-size: 1rem; white-space: nowrap; }
-  .price-item-price sub { font-family: 'Inter', sans-serif; font-weight: 400; color: var(--text-light); font-size: 0.68rem; }
-  .price-item-arrow { width: 22px; height: 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--wood-mid); transition: transform 0.25s ease; }
-  .price-item.open .price-item-arrow { transform: rotate(180deg); }
-  .price-item-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: var(--cream); }
-  .price-item.open .price-item-body { max-height: 300px; }
-  .price-item-body-inner { padding: 0.2rem 1.25rem 1.1rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.6rem; }
-  .price-item-spec { font-size: 0.82rem; color: var(--text-mid); }
-  .price-item-spec strong { color: var(--wood-dark); font-weight: 600; }
-  .price-item-pnote { font-size: 0.78rem; color: var(--text-light); flex-basis: 100%; }
-  .price-item-detail-btn { margin-left: auto; font-size: 0.78rem; font-weight: 600; color: var(--wood-dark); border: 1px solid var(--wood-dark); padding: 0.35rem 0.9rem; border-radius: 20px; background: transparent; cursor: pointer; white-space: nowrap; transition: all 0.2s; }
-  .price-item-detail-btn:hover { background: var(--wood-dark); color: var(--white); }
-
   /* Why Choose Us & Others */
   #tai-sao { background: var(--wood-dark); color: var(--white); }
   #tai-sao .section-tag { color: var(--gold); }
@@ -331,7 +286,6 @@
   </a>
   <ul class="nav-links">
     <li><a href="#san-pham">Sản phẩm phân phối</a></li>
-    <li><a href="#bang-gia">Bảng giá tham khảo</a></li>
     <li><a href="#tai-sao">Cam kết chất lượng</a></li>
     <li><a href="#danh-gia">Khách hàng Đức Phổ</a></li>
     <li><a href="#lien-he">Liên hệ báo giá</a></li>
@@ -419,15 +373,6 @@
       <!-- Sản phẩm sẽ hiển thị tại đây -->
     </div>
   </div>
-</section>
-
-<!-- Price Section - Simplified Accordion -->
-<section id="bang-gia">
-  <div class="section-tag">Chi phí đầu tư</div>
-  <h2 class="section-title">Bảng giá tham khảo trọn gói</h2>
-  <p class="section-desc">Bấm chọn loại sàn quan tâm (Sàn nhựa / Sàn gỗ) để xem các hãng và sản phẩm. Giá đã bao gồm vật liệu + keo/xốp lót + phào nẹp + công thợ thi công, tính theo m² sử dụng thực tế.</p>
-  <div class="price-note">⚠️ <strong>Lưu ý:</strong> Đây là giá tham khảo, có thể thay đổi theo thời điểm, độ dày/màu sắc khách chọn và điều kiện mặt bằng thực tế. Anh Bảo Ân sẽ khảo sát và báo giá chính xác tận nhà, hoàn toàn miễn phí.</div>
-  <div class="price-accordion" id="priceAccordion"></div>
 </section>
 
 <!-- Why Choose Us Section -->
@@ -1230,122 +1175,7 @@ function renderReviews() {
   `).join('');
 }
 
-// ==========================================
-// BẢNG GIÁ - DẠNG ACCORDION ĐƠN GIẢN
-// Bấm vào tên sản phẩm để xổ xuống xem giá/thông số
-// ==========================================
-function renderPriceAccordion() {
-  const acFrom = (fullSpecs) => {
-    const row = fullSpecs.find(s => s.label === 'Cấp mài mòn');
-    return row ? row.value : '—';
-  };
-  const thicknessFrom = (specs) => specs[0] || '—';
-
-  let itemIndex = 0;
-  const renderProductItem = (p) => {
-    const itemId = `priceItem${itemIndex++}`;
-    return `
-      <div class="price-item" id="${itemId}">
-        <div class="price-item-head" onclick="event.stopPropagation(); togglePriceItem('${itemId}')">
-          <div class="price-item-name">${p.name}<span>${p.origin}</span></div>
-          <div class="price-item-right">
-            <div class="price-item-price">${p.price}đ <sub>/${p.unit}</sub></div>
-            <div class="price-item-arrow">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"/></svg>
-            </div>
-          </div>
-        </div>
-        <div class="price-item-body">
-          <div class="price-item-body-inner">
-            <div class="price-item-spec">Độ dày: <strong>${thicknessFrom(p.specs)}</strong></div>
-            <div class="price-item-spec">Cấp mài mòn: <strong>${acFrom(p.fullSpecs)}</strong></div>
-            ${p.priceNote ? `<div class="price-item-pnote">${p.priceNote}</div>` : ''}
-            <button class="price-item-detail-btn" onclick="event.stopPropagation(); openModal('${p.id}')">Xem chi tiết & hình ảnh</button>
-          </div>
-        </div>
-      </div>
-    `;
-  };
-
-  // Cấp 1: chỉ 2 danh mục lớn - Sàn nhựa / Sàn gỗ
-  const nhuaItems = products.filter(p => p.cat === 'san-nhua');
-  const goGroups = [
-    { key: 'go-glomax', label: 'GLOMAX' },
-    { key: 'go-inovar', label: 'INOVAR (Malaysia)' },
-    { key: 'go-pergo', label: 'PERGO (Bỉ)' }
-  ];
-  const goTotal = products.filter(p => p.cat.startsWith('go-')).length;
-
-  let html = '';
-
-  // --- Danh mục: Sàn nhựa ---
-  html += `
-    <div class="price-cat" id="priceCatNhua">
-      <div class="price-cat-head" onclick="togglePriceCat('priceCatNhua')">
-        <div class="price-cat-name">
-          <div class="price-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4.5v11L12 22l-9-4.5v-11L12 2z"/></svg></div>
-          SÀN NHỰA <span class="price-cat-count">(${nhuaItems.length} sản phẩm)</span>
-        </div>
-        <div class="price-cat-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"/></svg></div>
-      </div>
-      <div class="price-cat-body">
-        ${nhuaItems.map(renderProductItem).join('')}
-      </div>
-    </div>
-  `;
-
-  // --- Danh mục: Sàn gỗ (gồm các hãng con) ---
-  let goBody = '';
-  goGroups.forEach(grp => {
-    const items = products.filter(p => p.cat === grp.key);
-    if (!items.length) return;
-    goBody += `<div class="price-group-title">${grp.label}</div>`;
-    goBody += items.map(renderProductItem).join('');
-  });
-
-  html += `
-    <div class="price-cat" id="priceCatGo">
-      <div class="price-cat-head" onclick="togglePriceCat('priceCatGo')">
-        <div class="price-cat-name">
-          <div class="price-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div>
-          SÀN GỖ <span class="price-cat-count">(${goTotal} sản phẩm - GLOMAX, INOVAR, PERGO)</span>
-        </div>
-        <div class="price-cat-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6,9 12,15 18,9"/></svg></div>
-      </div>
-      <div class="price-cat-body">
-        ${goBody}
-      </div>
-    </div>
-  `;
-
-  document.getElementById('priceAccordion').innerHTML = html;
-}
-
-function togglePriceCat(catId) {
-  const el = document.getElementById(catId);
-  if (!el) return;
-  const isOpen = el.classList.contains('open');
-  // Đóng danh mục khác để giao diện gọn, không chiếm nhiều không gian
-  document.querySelectorAll('.price-cat.open').forEach(cat => {
-    cat.classList.remove('open');
-    cat.querySelectorAll('.price-item.open').forEach(item => item.classList.remove('open'));
-  });
-  if (!isOpen) el.classList.add('open');
-}
-
-function togglePriceItem(itemId) {
-  const el = document.getElementById(itemId);
-  if (!el) return;
-  const isOpen = el.classList.contains('open');
-  // Đóng các sản phẩm khác trong cùng danh mục để danh sách gọn gàng
-  const parentCat = el.closest('.price-cat-body');
-  if (parentCat) {
-    parentCat.querySelectorAll('.price-item.open').forEach(item => item.classList.remove('open'));
-  }
-  if (!isOpen) el.classList.add('open');
-}
-
-// Form Submit -> Chuyển hướng sang tin nhắn Zalo/SMS
+// Form Submit -> Chuyển hướng trực tiếp sang tin nhắn SMS
 function handleSubmit(e) {
   e.preventDefault();
   
@@ -1356,21 +1186,13 @@ function handleSubmit(e) {
   const type = document.getElementById('formSelect').value;
   const note = document.getElementById('formNote').value || 'Không có';
 
-  const message = `Chào Sàn Gỗ Bảo Ân, tôi cần tư vấn thi công sàn:\n- Tên khách hàng: ${name}\n- SĐT: ${phone}\n- Diện tích dự kiến: ${area} m²\n- Sản phẩm quan tâm: ${type}\n- Ghi chú: ${note}`;
-
+  const message = `Chào Sàn Gỗ Bảo Ân, tôi cần tư vấn:\n- Tên: ${name}\n- SĐT: ${phone}\n- Diện tích: ${area} m²\n- Sản phẩm: ${type}\n- Ghi chú: ${note}`;
+  
   const sdtBaoAn = "0363333426"; 
 
-  navigator.clipboard.writeText(message).then(() => {
-    showToast(`✓ Đã sao chép thông tin! Hệ thống đang chuyển sang Zalo, hãy dán (Paste) vào khung chat nhé.`);
-    setTimeout(() => {
-      window.open(`https://zalo.me/${sdtBaoAn}`, '_blank');
-    }, 2500);
-  }).catch(() => {
-    showToast(`✓ Đang chuyển hướng sang tin nhắn SMS...`);
-    setTimeout(() => {
-      window.location.href = `sms:${sdtBaoAn}?body=${encodeURIComponent(message)}`;
-    }, 1500);
-  });
+  showToast(`✓ Đang chuyển sang ứng dụng tin nhắn SMS...`);
+  
+  window.location.href = `sms:${sdtBaoAn}?body=${encodeURIComponent(message)}`;
 
   e.target.reset();
 }
@@ -1383,7 +1205,6 @@ function showToast(msg) {
 }
 
 renderReviews();
-renderPriceAccordion();
 </script>
 </body>
 </html>
