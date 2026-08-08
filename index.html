@@ -184,16 +184,58 @@
   .step-label { font-size: 0.95rem; color: var(--white); font-weight: 600; }
   .step-sub { font-size: 0.82rem; color: rgba(255,255,255,0.55); margin-top: 0.15rem; }
 
-  /* Reviews */
+  /* FEEDBACK GRID - GIAO DIỆN MỚI DÀNH CHO ẢNH CHỤP MÀN HÌNH */
   #danh-gia { background: var(--cream-dark); }
-  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2.5rem; }
-  .review-card { background: var(--white); border: 1px solid rgba(107,68,34,0.08); padding: 1.5rem; border-radius: 3px; }
-  .stars { color: var(--gold); font-size: 0.95rem; letter-spacing: 2px; margin-bottom: 0.8rem; }
-  .review-text { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
-  .reviewer { display: flex; align-items: center; gap: 0.75rem; }
-  .reviewer-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--cream-dark); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; color: var(--wood-mid); }
-  .reviewer-name { font-size: 0.88rem; font-weight: 700; color: var(--wood-dark); }
-  .reviewer-loc { font-size: 0.75rem; color: var(--text-light); }
+  .feedback-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+  
+  .feedback-item { 
+    position: relative; 
+    cursor: zoom-in; 
+    overflow: hidden; 
+    border-radius: 6px; 
+    aspect-ratio: 1/1; 
+    border: 1px solid rgba(107,68,34,0.1); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    background: var(--white);
+  }
+  
+  .feedback-item img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    object-position: top; /* Giữ phần đầu tin nhắn không bị cắt mất */
+    transition: transform 0.4s ease, opacity 0.3s ease; 
+  }
+  
+  .feedback-item:hover img { 
+    transform: scale(1.05); 
+    opacity: 0.7; 
+  }
+  
+  .feedback-overlay { 
+    position: absolute; 
+    inset: 0; 
+    background: rgba(0,0,0,0.25); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    opacity: 0; 
+    transition: opacity 0.3s; 
+    pointer-events: none; /* Tránh cản trở thao tác click */
+  }
+  
+  .feedback-item:hover .feedback-overlay { 
+    opacity: 1; 
+  }
+  
+  .zoom-icon-svg { 
+    width: 36px; 
+    height: 36px; 
+    stroke: white; 
+    fill: none; 
+    stroke-width: 2.5; 
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+  }
 
   /* Contact Section */
   #lien-he { background: var(--white); }
@@ -270,6 +312,8 @@
     .lightbox-nav { width: 40px; height: 40px; }
     .category-split { grid-template-columns: 1fr; }
     .cat-title { font-size: 1.8rem; }
+    /* Mobile cho Lưới Đánh giá */
+    .feedback-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   }
 </style>
 </head>
@@ -279,7 +323,9 @@
 <nav>
   <a href="#" class="logo-group">
     <div class="logo">Sàn Gỗ <span>Bảo Ân</span></div>
-    <div class="logo-sub">Đại lý phân phối sàn gỗ, sàn nhựa * Mộc Gia Phúc</div>
+    <div class="logo-sub">Đại lý phân phối sàn gỗ, sàn nhựa *Mộc Gia Phúc*
+      <br>mocgiaphuc.com</div>
+    </div>
   </a>
   <ul class="nav-links">
     <li><a href="#san-pham">Sản phẩm phân phối</a></li>
@@ -412,8 +458,11 @@
 <!-- Reviews Section -->
 <section id="danh-gia">
   <div class="section-tag">Khách hàng địa phương</div>
-  <h2 class="section-title">Đánh giá từ chủ nhà </h2>
-  <div class="reviews-grid" id="reviewsGrid"></div>
+  <h2 class="section-title">Tin nhắn phản hồi từ khách hàng</h2>
+  <p class="section-desc" style="margin-bottom: 0;">Sự hài lòng của khách hàng là minh chứng rõ nhất cho chất lượng thi công tại Sàn Gỗ Bảo Ân.</p>
+  
+  <!-- Khu vực hiển thị Lưới Ảnh Chụp Màn Hình -->
+  <div class="feedback-grid" id="reviewsGrid"></div>
 </section>
 
 <!-- Contact Form Section -->
@@ -600,7 +649,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32 (Dân dụng)' },
       { label: 'Bề mặt', value: 'Vân gỗ nổi, chống trơn trượt, phủ UV 0.15–0.2mm' },
       { label: 'Thi công', value: 'Dán keo trực tiếp lên nền, không cần hèm khóa' },
-      { label: 'Bảo hành', value: '5 năm bong tróc keo (đúng kỹ thuật thi công)' },
+      { label: 'Bảo hành', value: '(đúng kỹ thuật thi công)' },
       { label: 'Phù hợp', value: 'Cửa hàng, quán cà phê, cải tạo nhanh, ngân sách tiết kiệm' }
     ]
   },
@@ -621,7 +670,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 33' },
       { label: 'Bề mặt', value: 'Sần vân gỗ tự nhiên' },
       { label: 'Hèm khóa', value: 'Hèm khóa thông minh không cần keo' },
-      { label: 'Bảo hành', value: '10 năm chính hãng' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng' },
       { label: 'Phù hợp', value: 'Nhà ở, căn hộ, văn phòng, nơi có độ ẩm cao' }
     ]
   },
@@ -643,7 +692,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 33 (Thương mại nhẹ)' },
       { label: 'Bề mặt', value: 'Sần EIR chân thực, wear layer 0.3mm' },
       { label: 'Hèm khóa', value: 'Hèm khóa SPC thông minh, tự định vị, không cần keo' },
-      { label: 'Bảo hành', value: '10 năm chính hãng' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng' },
       { label: 'Phù hợp', value: 'Nhà ở, văn phòng, khu vực ẩm thấp (bếp, gần biển)' }
     ]
   },
@@ -665,7 +714,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 33 (Thương mại nhẹ)' },
       { label: 'Bề mặt', value: 'Sần lụa mờ, phủ Nano 0.3mm' },
       { label: 'Hèm khóa', value: 'Click system, lắp ghép không cần keo' },
-      { label: 'Bảo hành', value: '10 năm chính hãng' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng' },
       { label: 'Phù hợp', value: 'Căn hộ, nhà phố, không gian cần vẻ hiện đại' }
     ]
   },
@@ -687,7 +736,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 33 (Thương mại nhẹ)' },
       { label: 'Bề mặt', value: 'Sần chống trượt chuẩn R10, wear layer 0.3–0.5mm' },
       { label: 'Hèm khóa', value: 'Hèm khóa thông minh, liên kết chặt, không hở mạch' },
-      { label: 'Bảo hành', value: '10 năm chính hãng' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng' },
       { label: 'Phù hợp', value: 'Khu vực ven biển, khí hậu nồm ẩm, nhà tắm nắng nóng' }
     ]
   },
@@ -711,7 +760,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32 / AC4' },
       { label: 'Bề mặt', value: 'Sần mờ tự nhiên' },
       { label: 'Hèm khóa', value: 'Khóa mộng kép, phủ sáp chống ẩm mép hèm' },
-      { label: 'Bảo hành', value: '15 năm chính hãng' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng' },
       { label: 'Phù hợp', value: 'Phòng ngủ, căn hộ chung cư, ngân sách tối ưu' }
     ]
   },
@@ -734,7 +783,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32 / AC4' },
       { label: 'Bề mặt', value: 'Sần theo vân gỗ' },
       { label: 'Hèm khóa', value: 'Hèm khóa thông minh Unilin' },
-      { label: 'Bảo hành', value: '15 năm chính hãng' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng' },
       { label: 'Phù hợp', value: 'Phòng khách, nhà phố, không gian rộng cần đi êm chân' }
     ]
   },
@@ -759,7 +808,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'AC4' },
       { label: 'Bề mặt', value: 'Mặt sần chống trơn' },
       { label: 'Hèm khóa', value: 'Novaloc, phủ sáp hèm chống thấm' },
-      { label: 'Bảo hành', value: '20 năm chính hãng' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng' },
       { label: 'Phù hợp', value: 'Nhà ở khí hậu nồm ẩm, cần chống mối mọt' }
     ]
   },
@@ -784,7 +833,7 @@ const products = [
       { label: 'C cấp mài mòn', value: 'AC5 (Cao nhất, chống xước cực tốt)' },
       { label: 'Bề mặt', value: 'Sần EIR (Embossed in Register)' },
       { label: 'Hèm khóa', value: 'Novaloc, công nghệ độc quyền' },
-      { label: 'Bảo hành', value: '25 năm chính hãng' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng' },
       { label: 'Phù hợp', value: 'Phòng khách, nhà phố miền Trung, nơi nồm ẩm cao' }
     ]
   },
@@ -806,7 +855,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'AC4 / AC5' },
       { label: 'Bề mặt', value: 'Sần lụa' },
       { label: 'Hèm khóa', value: 'Hèm A/B chuyên biệt cho lát Herringbone' },
-      { label: 'Bảo hành', value: '20 năm chính hãng' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng' },
       { label: 'Phù hợp', value: 'Phòng khách, showroom, không gian cần điểm nhấn sang trọng' }
     ]
   },
@@ -831,7 +880,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32' },
       { label: 'Bề mặt', value: 'Rãnh V tinh tế, vân gỗ 100% tự nhiên' },
       { label: 'Hèm khóa', value: 'Uniclic (chắc chắn hàng đầu thế giới)' },
-      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng, chống xước TitanX™' },
       { label: 'Phù hợp', value: 'Nhà phố, biệt thự, không gian cần vẻ hiện đại châu Âu' }
     ]
   },
@@ -850,7 +899,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32' },
       { label: 'Bề mặt', value: 'Ép vân rãnh V đồng điệu (Genuine™ Wood)' },
       { label: 'Hèm khóa', value: 'PerfectFold™ 3.0 / Uniclic' },
-      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng, chống xước TitanX™' },
       { label: 'Phù hợp', value: 'Biệt thự, showroom, không gian cao cấp' }
     ]
   },
@@ -869,7 +918,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32' },
       { label: 'Bề mặt', value: 'Cảm giác gỗ thật hoàn hảo' },
       { label: 'Hèm khóa', value: 'Uniclic' },
-      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng, chống xước TitanX™' },
       { label: 'Phù hợp', value: 'Không gian rộng, phòng khách lớn muốn tạo cảm giác nới rộng' }
     ]
   },
@@ -888,7 +937,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32' },
       { label: 'Bề mặt', value: 'Phủ sần nhẹ, tự nhiên' },
       { label: 'Hèm khóa', value: 'Uniclic' },
-      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng, chống xước TitanX™' },
       { label: 'Phù hợp', value: 'Không gian phong cách tối giản, tông màu sáng' }
     ]
   },
@@ -907,7 +956,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32' },
       { label: 'Bề mặt', value: 'Vân lụa, mướt chân' },
       { label: 'Hèm khóa', value: 'Uniclic, chống hở mạch' },
-      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng, chống xước TitanX™' },
       { label: 'Phù hợp', value: 'Không gian cổ điển, tông màu gỗ sồi ấm áp' }
     ]
   },
@@ -926,7 +975,7 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32' },
       { label: 'Bề mặt', value: 'Đậm nét phong cách Châu Âu' },
       { label: 'Hèm khóa', value: 'Uniclic' },
-      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng, chống xước TitanX™' },
       { label: 'Phù hợp', value: 'Không gian cá tính, muốn tạo dấu ấn riêng' }
     ]
   },
@@ -945,20 +994,24 @@ const products = [
       { label: 'Cấp mài mòn', value: 'Class 32' },
       { label: 'Bề mặt', value: 'Vân hoa văn độc bản' },
       { label: 'Hèm khóa', value: 'Uniclic' },
-      { label: 'Bảo hành', value: '25 năm chính hãng, chống xước TitanX™' },
+      { label: 'Bảo hành', value: '12 tháng chính hãng, chống xước TitanX™' },
       { label: 'Phù hợp', value: 'Sảnh lớn, phòng khách cần điểm nhấn nghệ thuật' }
     ]
   }
 ];
 
-// Đánh giá khách hàng
-const reviews = [
-  { stars: 5, text: 'Nhà mình lát sàn gỗ INOVAR 12mm, Sàn Gỗ Bảo Ân mang mẫu tận nhà tư vấn rất kỹ, thi công nhanh gọn, sạch sẽ.', init: 'MH', name: 'Chị Minh Hà', loc: 'Thị xã Đức Phổ' },
-  { stars: 5, text: 'Sàn nhựa dán keo giá hợp lý, thi công 1 ngày là xong, bám chắc, không hề bung mép sau nhiều tháng sử dụng.', init: 'TL', name: 'Anh Thanh Long', loc: 'Mộ Đức' },
-  { stars: 5, text: 'Team thợ làm việc chuyên nghiệp, tư vấn nhiệt tình, giá báo trọn gói không phát sinh thêm chi phí nào.', init: 'KV', name: 'Anh Kim Vũ', loc: 'Sa Huỳnh' },
-  { stars: 4, text: 'Sàn gỗ Pergo nhập khẩu Bỉ đẹp và sang, đúng như catalogue anh Bảo Ân mang tới xem, rất hài lòng.', init: 'PN', name: 'Chị Phương Nam', loc: 'Phổ Ninh' },
-  { stars: 5, text: 'Nhà ở gần biển hay ẩm, được tư vấn dùng sàn nhựa King chống nước, dùng hơn năm nay vẫn rất ổn định.', init: 'DH', name: 'Anh Duy Hoàng', loc: 'Hoài Nhơn, Bình Định' },
-  { stars: 5, text: 'Giá cả rõ ràng ngay từ đầu, đội thi công đúng hẹn, dọn dẹp sạch sẽ sau khi hoàn thiện công trình.', init: 'TT', name: 'Chị Thu Trang', loc: 'Thị xã Đức Phổ' }
+// ==========================================
+// CẤU HÌNH MẢNG ẢNH ĐÁNH GIÁ (FEEDBACK SCREENSHOTS)
+// ==========================================
+// THAY ĐỔI TÊN FILE ẢNH CỦA BẠN VÀO ĐÂY (Nên có từ 4 đến 8 ảnh để xếp lưới cho đẹp)
+const feedbackScreenshots = [
+  '1f.jpg', 
+  '2f.jpg',
+  '3f.jpg',
+  '4f.jpg',
+  '5f.jpg',
+  '6f.jpg',
+  '7f.jpg'
 ];
 
 // ==========================================
@@ -968,7 +1021,7 @@ const brandTabsData = {
   'nhua': [
     { label: 'Tất cả Hãng (Nhựa)', match: p => true },
     { label: 'Dán Keo', match: p => p.name.includes('Keo') },
-    { label: 'Hèm Khóa', match: p => p.name.includes('Hèm Khóa') }, // THÊM LỌC HÈM KHÓA VÀO ĐÂY
+    { label: 'Hèm Khóa', match: p => p.name.includes('Hèm Khóa') }, 
     { label: 'GLO TEX', match: p => p.name.includes('GLO TEX') },
     { label: 'NEOFLOOR', match: p => p.name.includes('NEOFLOOR') },
     { label: 'King', match: p => p.name.includes('King') }
@@ -1073,7 +1126,7 @@ function openModal(productId) {
   document.getElementById('modalTitle').textContent = p.name;
   document.getElementById('modalOrigin').textContent = p.origin;
   document.getElementById('modalDesc').textContent = p.desc;
-  document.getElementById('modalPriceValue').innerHTML = p.price; // ĐÃ SỬA THÀNH p.price
+  document.getElementById('modalPriceValue').innerHTML = p.price;
   document.getElementById('modalPriceNote').textContent = p.priceNote || '';
   
   renderMainImg();
@@ -1127,6 +1180,7 @@ document.getElementById('productModal').addEventListener('click', function(e) {
   if (e.target === this) closeModal();
 });
 
+// Mở Lightbox chung cho cả Sản phẩm & Lưới Feedback
 function openLightbox() {
   if (!currentGallery.length) return;
   const lb = document.getElementById('lightbox');
@@ -1141,14 +1195,21 @@ function closeLightbox() {
   document.getElementById('lightbox').classList.remove('active');
 }
 
+// Logic Next/Prev chung
 function stepLightbox(dir) {
   if (!currentGallery.length) return;
   currentImgIndex = (currentImgIndex + dir + currentGallery.length) % currentGallery.length;
+  
   const lbImg = document.getElementById('lightboxImg');
   lbImg.src = currentGallery[currentImgIndex];
   lbImg.onerror = function() { this.src='https://via.placeholder.com/1200x900?text=Chưa+Cập+Nhật+Ảnh'; };
+  
   document.getElementById('lightboxCounter').textContent = `${currentImgIndex + 1}/${currentGallery.length}`;
-  renderMainImg();
+  
+  // Đồng bộ lại hình ảnh bên trong Modal Sản Phẩm (Nếu Modal đang mở)
+  if(document.getElementById('productModal').classList.contains('active')) {
+      renderMainImg();
+  }
 }
 
 document.getElementById('lightbox').addEventListener('click', function(e) {
@@ -1181,19 +1242,26 @@ function triggerOrder() {
   }
 }
 
-// Render Reviews
+// Render lưới Feedback Ảnh chụp màn hình
 function renderReviews() {
-  document.getElementById('reviewsGrid').innerHTML = reviews.map(r => `
-    <div class="review-card">
-      <div class="stars">${'★'.repeat(r.stars)}${'☆'.repeat(5 - r.stars)}</div>
-      <div class="review-text">"${r.text}"</div>
-      <div class="reviewer">
-        <div class="reviewer-avatar">${r.init}</div>
-        <div><div class="reviewer-name">${r.name}</div><div class="reviewer-loc">${r.loc}</div></div>
+  document.getElementById('reviewsGrid').innerHTML = feedbackScreenshots.map((url, index) => `
+    <div class="feedback-item" onclick="openFeedbackLightbox(${index})">
+      <img src="${url}" alt="Phản hồi khách hàng ${index + 1}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x400?text=Ảnh+Đánh+Giá'">
+      <div class="feedback-overlay">
+        <svg class="zoom-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
       </div>
     </div>
   `).join('');
 }
+
+// Hàm mở Lightbox riêng dành cho Feedback
+function openFeedbackLightbox(index) {
+  // Nạp mảng ảnh Feedback vào biến currentGallery để dùng chung tính năng Lightbox có sẵn
+  currentGallery = feedbackScreenshots;
+  currentImgIndex = index;
+  openLightbox();
+}
+
 
 // Form Submit -> Chuyển hướng trực tiếp sang tin nhắn SMS
 function handleSubmit(e) {
@@ -1224,6 +1292,7 @@ function showToast(msg) {
   setTimeout(() => t.classList.remove('show'), 3500);
 }
 
+// Chạy hàm render khi web tải xong
 renderReviews();
 </script>
 </body>
