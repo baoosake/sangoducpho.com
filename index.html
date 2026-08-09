@@ -123,8 +123,11 @@
   .modal-close:hover { background: var(--gold); color: white; transform: rotate(90deg); }
   .modal-body { display: grid; grid-template-columns: 1.15fr 0.85fr; overflow-y: auto; }
   .modal-gallery { padding: 25px; background: var(--cream); border-right: 1px solid rgba(107,68,34,0.1); }
-  .main-img-wrap { width: 100%; aspect-ratio: 4/3; max-height: 460px; border-radius: 4px; overflow: hidden; margin-bottom: 15px; background: var(--cream-dark); display: flex; align-items: center; justify-content: center; position: relative; cursor: zoom-in; padding: 15px; }
-  .main-img-wrap img { width: 100%; height: 100%; object-fit: contain; }
+  
+  /* Cập nhật CSS hỗ trợ Touch/Swipe cho khung ảnh */
+  .main-img-wrap { width: 100%; aspect-ratio: 4/3; max-height: 460px; border-radius: 4px; overflow: hidden; margin-bottom: 15px; background: var(--cream-dark); display: flex; align-items: center; justify-content: center; position: relative; cursor: zoom-in; padding: 15px; touch-action: pan-y; }
+  .main-img-wrap img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+  
   .main-nav-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 38px; height: 38px; border-radius: 50%; background: rgba(30,20,11,0.55); color: #fff; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 4; transition: background 0.2s; }
   .main-nav-btn:hover { background: var(--wood-dark); }
   .main-nav-btn.prev { left: 10px; }
@@ -154,8 +157,8 @@
   /* Lightbox */
   .lightbox { display: none; position: fixed; inset: 0; background: rgba(10,6,3,0.94); z-index: 1200; align-items: center; justify-content: center; padding: 20px; }
   .lightbox.active { display: flex; }
-  .lightbox-img-wrap { position: relative; max-width: 94vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
-  .lightbox-img-wrap img { max-width: 94vw; max-height: 90vh; object-fit: contain; border-radius: 2px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+  .lightbox-img-wrap { position: relative; max-width: 94vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; touch-action: pan-y; }
+  .lightbox-img-wrap img { max-width: 94vw; max-height: 90vh; object-fit: contain; border-radius: 2px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); user-select: none; -webkit-user-drag: none; pointer-events: none;}
   .lightbox-close { position: absolute; top: 18px; right: 22px; width: 42px; height: 42px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; color: #fff; font-size: 1.6rem; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; transition: all 0.2s; }
   .lightbox-close:hover { background: var(--gold); border-color: var(--gold); transform: rotate(90deg); }
   .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.25); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; transition: all 0.2s; }
@@ -522,7 +525,7 @@
           <label>Loại vật liệu quan tâm</label>
           <select id="formSelect">
             <option>Sàn nhựa dán keo</option>
-            <option>Sàn nhựa GLO TEX</option>
+            <option>Sàn nhựa GLOTEX</option>
             <option>Sàn nhựa NEOFLOOR</option>
             <option>Sàn nhựa King</option>
             <option>Sàn gỗ GLOMAX</option>
@@ -544,7 +547,8 @@
     <button class="modal-close" onclick="closeModal()">×</button>
     <div class="modal-body">
       <div class="modal-gallery">
-        <div class="main-img-wrap" id="mainImgWrap" onclick="openLightbox()">
+        <!-- Đã gỡ onclick="openLightbox()" ở HTML, chuyển sang xử lý trong JS để tránh xung đột với Touch -->
+        <div class="main-img-wrap" id="mainImgWrap">
           <button class="main-nav-btn prev" onclick="event.stopPropagation(); stepMainImg(-1)">‹</button>
           <img id="modalMainImg" src="" alt="Sản phẩm chính">
           <button class="main-nav-btn next" onclick="event.stopPropagation(); stepMainImg(1)">›</button>
@@ -585,7 +589,7 @@
 <div id="lightbox" class="lightbox">
   <button class="lightbox-close" onclick="closeLightbox()">×</button>
   <button class="lightbox-nav prev" onclick="stepLightbox(-1)">‹</button>
-  <div class="lightbox-img-wrap">
+  <div class="lightbox-img-wrap" id="lightboxWrap">
     <img id="lightboxImg" src="" alt="Xem chi tiết">
     <div class="lightbox-counter" id="lightboxCounter">1/1</div>
   </div>
@@ -1100,7 +1104,7 @@ const brandTabsData = {
     { label: 'Tất cả Hãng (Nhựa)', match: p => true },
     { label: 'Dán Keo', match: p => p.name.includes('Keo') },
     { label: 'Hèm Khóa', match: p => p.name.includes('Hèm Khóa') }, 
-    { label: 'GLO TEX', match: p => p.name.includes('GLO TEX') },
+    { label: 'GLOTEX', match: p => p.name.includes('GLOTEX') },
     { label: 'NEOFLOOR', match: p => p.name.includes('NEOFLOOR') },
     { label: 'King', match: p => p.name.includes('King') }
   ],
@@ -1291,10 +1295,78 @@ function stepLightbox(dir) {
   }
 }
 
+// XỬ LÝ SỰ KIỆN TOUCH / SWIPE
+const SWIPE_THRESHOLD = 50; // Khoảng cách tối thiểu để nhận diện vuốt (pixel)
+let touchStartX = 0;
+let touchEndX = 0;
+let isSwiping = false;
+
+// 1. Xử lý vuốt cho khung ảnh trong Popup Modal
+const mainImgWrap = document.getElementById('mainImgWrap');
+
+mainImgWrap.addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+  isSwiping = false;
+}, { passive: true });
+
+mainImgWrap.addEventListener('touchmove', e => {
+  // Nếu ngón tay di chuyển > 10px thì xác nhận đây là thao tác vuốt, không phải click
+  if (Math.abs(e.changedTouches[0].screenX - touchStartX) > 10) {
+    isSwiping = true;
+  }
+}, { passive: true });
+
+mainImgWrap.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  if (Math.abs(touchEndX - touchStartX) > SWIPE_THRESHOLD) {
+    if (touchEndX < touchStartX) {
+      stepMainImg(1); // Vuốt sang trái -> Ảnh tiếp theo
+    } else {
+      stepMainImg(-1); // Vuốt sang phải -> Ảnh trước đó
+    }
+  }
+});
+
+// Xử lý Click để mở zoom (chặn không mở nếu đang vuốt)
+mainImgWrap.addEventListener('click', e => {
+  // Không mở lightbox nếu vừa vuốt xong hoặc bấm vào nút mũi tên
+  if (isSwiping || e.target.tagName.toLowerCase() === 'button') return;
+  openLightbox();
+});
+
+// 2. Xử lý vuốt cho khung ảnh Fullscreen (Lightbox)
+const lightboxWrap = document.getElementById('lightbox');
+let isLightboxSwiping = false;
+
+lightboxWrap.addEventListener('touchstart', e => {
+  touchStartX = e.changedTouches[0].screenX;
+  isLightboxSwiping = false;
+}, { passive: true });
+
+lightboxWrap.addEventListener('touchmove', e => {
+  if (Math.abs(e.changedTouches[0].screenX - touchStartX) > 10) {
+    isLightboxSwiping = true;
+  }
+}, { passive: true });
+
+lightboxWrap.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  if (Math.abs(touchEndX - touchStartX) > SWIPE_THRESHOLD) {
+    if (touchEndX < touchStartX) {
+      stepLightbox(1); // Vuốt sang trái
+    } else {
+      stepLightbox(-1); // Vuốt sang phải
+    }
+  }
+});
+
+// Sửa lại event click tắt lightbox (không tắt nếu đang vuốt)
 document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (isLightboxSwiping) return; // Nếu vừa vuốt thì bỏ qua
   if (e.target === this) closeLightbox();
 });
 
+// Phím mũi tên trên máy tính
 document.addEventListener('keydown', function(e) {
   const lbActive = document.getElementById('lightbox').classList.contains('active');
   const modalActive = document.getElementById('productModal').classList.contains('active');
